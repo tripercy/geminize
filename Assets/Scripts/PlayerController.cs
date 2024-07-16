@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class playerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isMoving;
