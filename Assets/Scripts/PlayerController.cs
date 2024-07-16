@@ -1,93 +1,67 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using UnityEngine;
 
-<<<<<<< HEAD
 public class playerController : MonoBehaviour
-=======
-public class PlayerController : MonoBehaviour
->>>>>>> parent of 6ea951a (Re-upload walking animation)
 {
-    public float moveSpeed;
+    public float moveSpeed = 5f;
+    public bool isMoving;
     private Vector2 input;
-    private Vector2 velocity = Vector2.zero;
-
-    // Start is called before the first frame update
+    private Animator animator;
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
-    void Update() {
-        input.x = Input.GetAxisRaw("Horizontal");
+    void Update()
+    {
+        if (!isMoving)
+        {
+            input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
             if (input.x != 0)
             {
                 input.y = 0;
             }
+            else
+            {
+                input.x = 0;
+            }
 
             if (input != Vector2.zero)
             {
-                velocity = input;
+
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+
+                var dest = transform.position;
+
+                if (input.x != 0)
+                {
+                    dest += new Vector3(input.x, 0, 0);
+                }
+                else if (input.y != 0)
+                {
+                    dest += new Vector3(0, input.y, 0);
+                }
+
+                StartCoroutine(Move(dest));
             }
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        // if (!isMoving)
-        // {
-        //     input.x = Input.GetAxisRaw("Horizontal");
-        //     input.y = Input.GetAxisRaw("Vertical");
-
-        //     if (input.x != 0)
-        //     {
-        //         input.y = 0;
-        //     }
-
-        //     if (input != Vector2.zero)
-        //     {
-        //         print(isMoving);
-        //         isMoving = true;
-
-        //         var targetPos = transform.position;
-        //         targetPos.x += input.x;
-        //         targetPos.y += input.y;
-
-
-        //         Move(targetPos);
-        //     }
-        // }
-        
-        
-        if (velocity.sqrMagnitude > Mathf.Epsilon) {
-            Vector3 targetPos = transform.position;
-
-            targetPos.x += velocity.x;
-            targetPos.y += velocity.y;
-
-            transform.position = targetPos;
-            velocity = Vector3.MoveTowards(velocity, Vector2.zero, 1 / moveSpeed * Time.deltaTime);
-            print(velocity);
-        } else {
-            velocity = Vector2.zero;
         }
+
+        animator.SetBool("isMoving", isMoving);
     }
-
-    void Move(Vector3 targetPos)
+    IEnumerator Move(Vector3 dest)
     {
+        isMoving = true;
 
-        // while ((targetPos - transform.position).sqrMagnitude < Mathf.Epsilon)
-        // {
-        //     targetPos = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-        //     // yield return null;
-        // }
-        // transform.position = targetPos;
+        while (Vector3.Distance(transform.position, dest) > Mathf.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = dest;
 
-        // isMoving = false;
-        // print("Firing");
+        isMoving = false;
     }
 }
