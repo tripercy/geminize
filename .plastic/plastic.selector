@@ -1,4 +1,0 @@
-repository "geminize@QuocTranDz@cloud"
-  path "/"
-    br "/main"
-    co "/main"
