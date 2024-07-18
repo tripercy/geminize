@@ -7,7 +7,9 @@ public class playerController : MonoBehaviour
     public bool isMoving;
     private Vector2 input;
     private Animator animator;
-    void Start()
+    public LayerMask solidObjectsLayer;
+    
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
@@ -33,22 +35,16 @@ public class playerController : MonoBehaviour
 
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
-
                 var dest = transform.position;
+                dest.x += input.x;
+                dest.y += input.y;
 
-                if (input.x != 0)
+                if (!IsWalkable(dest))
                 {
-                    dest += new Vector3(input.x, 0, 0);
+                    StartCoroutine(Move(dest));
                 }
-                else if (input.y != 0)
-                {
-                    dest += new Vector3(0, input.y, 0);
-                }
-
-                StartCoroutine(Move(dest));
             }
         }
-
         animator.SetBool("isMoving", isMoving);
     }
     IEnumerator Move(Vector3 dest)
@@ -63,5 +59,14 @@ public class playerController : MonoBehaviour
         transform.position = dest;
 
         isMoving = false;
+    }
+
+    private bool IsWalkable(Vector3 dest)
+    {
+        if (Physics2D.OverlapCircle(dest, 0 , solidObjectsLayer) != null)
+        {
+            return true;
+        }
+        return false;
     }
 }
