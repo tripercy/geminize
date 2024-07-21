@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -37,7 +38,9 @@ public class playerController : MonoBehaviour
                 animator.SetFloat("moveY", input.y);
                 var dest = transform.position;
                 dest.x += input.x;
+                dest.x += (float) (0.03 - (dest.x - Math.Floor(dest.x)));
                 dest.y += input.y;
+                dest.y += (float) (0.03 - (dest.y - Math.Floor(dest.y)));
 
                 if (!IsWalkable(dest))
                 {
@@ -56,6 +59,7 @@ public class playerController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
         transform.position = dest;
 
         isMoving = false;
