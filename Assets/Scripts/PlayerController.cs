@@ -2,14 +2,19 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isMoving;
     private Vector2 input;
     private Animator animator;
     public LayerMask solidObjectsLayer;
+    public VectorValue startingPoint;
     
+    private void Start() {
+        print(startingPoint.initialValue);
+        transform.position = startingPoint.initialValue;
+    }
     private void Awake()
     {
         animator = GetComponent<Animator>();
