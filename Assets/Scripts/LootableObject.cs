@@ -34,7 +34,7 @@ public class LootableObject : MonoBehaviour
                 DialogBox.SetActive(false);
             } else {
                 DialogBox.SetActive(true);
-                dialogText.text = "Dialog";
+                dialogText.text = "DialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialogDialog";
             }
         }
     }

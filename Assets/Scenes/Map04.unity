@@ -26528,7 +26528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff101c84bb022f489a87bda84a70100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
+  sceneIndex: 2
   playerPosition: {x: -9, y: -203}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
 --- !u!61 &744100211
