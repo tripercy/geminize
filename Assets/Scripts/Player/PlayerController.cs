@@ -1,32 +1,46 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 
+public enum PlayerState
+{
+    idle,
+    walk,
+    interact
+}
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public bool isMoving;
-    private Vector2 input;
+    public PlayerState currentState;
+    public Rigidbody2D player;
+    private Vector3 input;
     private Animator animator;
     public LayerMask solidObjectsLayer;
     public VectorValue startingPoint;
-    
-    private void Start() {
-        print(startingPoint.initialValue);
-        transform.position = startingPoint.initialValue;
-    }
-    private void Awake()
+    public Inventory playerInventory;
+    public SpriteRenderer receiveItem;
+
+    private void Start()
     {
+        transform.position = startingPoint.initialValue;
+        currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
+        animator.SetFloat("moveX", 0);
+        animator.SetFloat("moveY", -1);
     }
 
     void Update()
     {
-        if (!isMoving)
+        if (currentState == PlayerState.interact)
         {
+            return;
+        }
+
+            input = Vector3.zero;
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
-
             if (input.x != 0)
             {
                 input.y = 0;
@@ -35,47 +49,47 @@ public class PlayerController : MonoBehaviour
             {
                 input.x = 0;
             }
-
-            if (input != Vector2.zero)
-            {
-
-                animator.SetFloat("moveX", input.x);
-                animator.SetFloat("moveY", input.y);
-                var dest = transform.position;
-                dest.x += input.x;
-                dest.x += (float) (0.03 - (dest.x - Math.Floor(dest.x)));
-                dest.y += input.y;
-                dest.y += (float) (0.03 - (dest.y - Math.Floor(dest.y)));
-
-                if (!IsWalkable(dest))
-                {
-                    StartCoroutine(Move(dest));
-                }
-            }
-        }
-        animator.SetBool("isMoving", isMoving);
-    }
-    IEnumerator Move(Vector3 dest)
-    {
-        isMoving = true;
-
-        while (Vector3.Distance(transform.position, dest) > Mathf.Epsilon)
+        
+        if (currentState == PlayerState.walk)
         {
-            transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
-            yield return null;
+            UpdateAnimationAndMove();
         }
-
-        transform.position = dest;
-
-        isMoving = false;
     }
 
-    private bool IsWalkable(Vector3 dest)
+    public void UpdateAnimationAndMove()
     {
-        if (Physics2D.OverlapCircle(dest, 0, solidObjectsLayer) != null)
+        if (input != Vector3.zero)
         {
-            return true;
+            MoveCharacter();
+            animator.SetFloat("moveX", input.x);
+            animator.SetFloat("moveY", input.y);
+            animator.SetBool("isMoving", true);
         }
-        return false;
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+    }
+
+    void MoveCharacter()
+    {
+        input.Normalize();
+        player.MovePosition(transform.position + moveSpeed * Time.deltaTime * input);
+    }
+
+    public void RaiseItem()
+    {
+        if (currentState != PlayerState.interact)
+        {
+            // animator.SetBool("isRecieve", true);
+            receiveItem.sprite = playerInventory.currentItem.itemSprite;
+            currentState = PlayerState.interact;
+        }
+        else
+        {
+            // animator.SetBool("isRecieve", false);
+            currentState = PlayerState.walk;
+            receiveItem.sprite = null;
+        }
     }
 }

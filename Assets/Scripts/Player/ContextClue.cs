@@ -7,21 +7,24 @@ public class ContextClue : MonoBehaviour
     public GameObject lootableObject;
     public GameObject hintObject;
     
-    public void EnableLootable()
+    public void ChangeLootable()
     {
         hintObject.SetActive(false);
-        lootableObject.SetActive(true);
+        if (lootableObject.activeInHierarchy) {
+            lootableObject.SetActive(false);
+        } else {
+            lootableObject.SetActive(true);
+        }
     }
 
-    public void EnableHint()
+    public void ChangeHint()
     {
         lootableObject.SetActive(false);
-        hintObject.SetActive(true);
-    }
-
-    public void Diable()
-    {
-        lootableObject.SetActive(false);
-        hintObject.SetActive(false);
+        if (hintObject.activeInHierarchy) {
+            hintObject.SetActive(false);
+        }
+        else {
+            hintObject.SetActive(true);
+        }
     }
 }

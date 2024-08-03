@@ -14,8 +14,6 @@ public class HintObject : Interactable
     public Text dialogText;
     public String dialog;
 
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isInRange)
@@ -31,6 +29,25 @@ public class HintObject : Interactable
                 DialogBox.SetActive(true);
                 dialogText.text = "Dialog";
             }
+        }
+    }
+
+        void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.CompareTo("Player") == 0)
+        {
+            isInRange = true;
+            clueOn.Raise();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag.CompareTo("Player") == 0)
+        {
+            isInRange = false;
+            DialogBox.SetActive(false);
+            ClueOff.SetActive(false);
         }
     }
 
