@@ -10,4 +10,5 @@ public class InventoryItem : ScriptableObject
     public Sprite itemSprite;
     public bool isUnique;
     public bool usable;
+    public ItemType itemType;
 }

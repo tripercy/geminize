@@ -38,7 +38,8 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void SetUpDescription(string des, InventoryItem item) {
-        itemDescription.text = des;
+        itemDescription.text = "<b>Description: </b>" + item.itemDescription + 
+        "<br>" + "<b>Data type: </b>" + item.itemType.typeName;
         currentItem = item;
     }
 
