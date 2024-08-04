@@ -18,5 +18,5 @@ public class Inventory : ScriptableObject
                 items.Add(item);
             }  
         }
-    }  
+    }
 }
