@@ -11,10 +11,12 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public GameObject emptyInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private TextMeshProUGUI itemDescription;
+    public InventoryItem currentItem;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         SetText("");
+        ClearInventory();
         CreateInventorySlot();
     } 
 
@@ -28,11 +30,21 @@ public class InventoryManager : MonoBehaviour
                 GameObject temp = Instantiate(emptyInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                 newSlot.transform.SetParent(inventoryPanel.transform);
-                print(playerInventory.items[i].itemSprite);
                 if (newSlot) {
                     newSlot.SetUp(playerInventory.items[i], this);
                 }
             }
+        }
+    }
+
+    public void SetUpDescription(string des, InventoryItem item) {
+        itemDescription.text = des;
+        currentItem = item;
+    }
+
+    public void ClearInventory() {
+        for (int i = 0; i < inventoryPanel.transform.childCount; i++) {
+            Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
     }
 }

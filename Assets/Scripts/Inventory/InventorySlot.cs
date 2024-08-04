@@ -15,15 +15,14 @@ public class InventorySlot : MonoBehaviour
     public void SetUp(InventoryItem item, InventoryManager manager) {
         thisItem = item;
         thisManager = manager;
-        print(thisItem.itemSprite);
         if (thisItem) {
             itemImage.sprite = thisItem.itemSprite;
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnClickBtn() {
+        if (thisItem) {
+            thisManager.SetUpDescription(thisItem.itemDescription, thisItem);
+        }
     }
 }

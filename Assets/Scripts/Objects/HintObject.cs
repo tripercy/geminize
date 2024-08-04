@@ -16,18 +16,20 @@ public class HintObject : Interactable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isInRange)
+        if (Input.GetKeyDown(KeyCode.Space) && isInRange && PauseManager.isReceivable)
         {
             if (DialogBox.activeInHierarchy)
             {
                 clueOn.Raise();
                 DialogBox.SetActive(false);
+                LootableObject.isOpening = false;
             }
             else
             {
                 ClueOff.SetActive(false);
                 DialogBox.SetActive(true);
                 dialogText.text = "Dialog";
+                LootableObject.isOpening = true;
             }
         }
     }
