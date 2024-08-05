@@ -46,6 +46,7 @@ public class Query : MonoBehaviour
             },
             GenerationConfig = new GeminiGenerationConfiguration()
             {
+                Temperature = 0.0f,
                 ResponseMimeType = GeminiResponseType.Json,
                 ResponseSchema = schema,
             }
