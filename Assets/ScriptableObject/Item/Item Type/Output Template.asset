@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6633e8ce62726e14aafae000995ce89c, type: 3}
-  m_Name: Player Inventory
+  m_Script: {fileID: 11500000, guid: 2eb8f6ba43f4c1c4894456e678f311ae, type: 3}
+  m_Name: Output Template
   m_EditorClassIdentifier: 
-  currentItem: {fileID: 0}
-  items: []
-  numberOfKeys: 0
+  typeName: OutputTemplate
+  typeDescription: Use to assign the output template after query.
