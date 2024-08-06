@@ -15,8 +15,7 @@ public class QueryBoardManager : MonoBehaviour
     [SerializeField] public GameObject emptyDataSlot;
     [SerializeField] private GameObject queryBoardPanel;
     public InventoryItem currentItem;
-    private List<InventoryItem> sortedQueryInventory;
-    private string res = "";
+    public string res = "";
 
     public void OnEnable()
     {
@@ -26,14 +25,20 @@ public class QueryBoardManager : MonoBehaviour
 
     void ClearDataInventory()
     {
-        for (int i = 0; i < queryBoardPanel.transform.childCount; i++)
+        if (queryBoardInventory.items.Count == 0) {
+            return;
+        }
+        for (int i = 0; i < queryBoardInventory.items.Count; i++)
         {
-            Destroy(queryBoardPanel.transform.GetChild(i).gameObject);
+            queryBoardInventory.items.RemoveAt(i);
         }
     }
 
     void NewQueyardsInventory() {
-        queryBoardInventory = new PlayerInventory();
+        for (int i = 0; i < queryBoardPanel.transform.childCount; i++)
+        {
+            Destroy(queryBoardPanel.transform.GetChild(i).gameObject);
+        }
     }
 
     public void SetCurrentItem(InventoryItem item)

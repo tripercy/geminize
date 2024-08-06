@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de5733d375e122e459be319374fa7f85, type: 3}
-  m_Name: Hint 02
+  m_Name: OutputTemplate 01
   m_EditorClassIdentifier: 
-  itemName: Hello
-  itemDescription: Hello Tri
-  itemSprite: {fileID: -62377157, guid: aaec8324cc87a6848b098907acdcf89b, type: 3}
+  itemName: Ot01
+  itemDescription: 123
+  itemSprite: {fileID: -450705497, guid: aaec8324cc87a6848b098907acdcf89b, type: 3}
   isUnique: 1
   usable: 0
-  itemType: {fileID: 11400000, guid: fab7fd07740b7b94dbed1cff2b60ec99, type: 2}
+  itemType: {fileID: 11400000, guid: 99a60b7874411ff45a05c3e90d31ef1e, type: 2}
