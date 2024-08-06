@@ -1,0 +1,9 @@
+{
+    "dataPieces": [
+        {
+            "id": "garage_door",
+            "name": "Garage door instruction",
+            "content": "Toggle the door with the password 0359a"
+        }
+    ]
+}
