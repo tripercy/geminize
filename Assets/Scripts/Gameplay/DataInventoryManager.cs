@@ -10,6 +10,7 @@ public class DataInventoryManager : MonoBehaviour
 {
     [Header("Inventory Information")]
     public PlayerInventory dataInventory;
+    public PlayerInventory queryBoardInventory;
     [SerializeField] public GameObject emptyDataSlot;
     [SerializeField] public GameObject emptyQuerySlot;
     [SerializeField] private GameObject dataPanel;
@@ -54,18 +55,19 @@ public class DataInventoryManager : MonoBehaviour
 
     public void OnClickAdd()
     {
-        
+
         GameObject temp = Instantiate(emptyQuerySlot, queryBoardPanel.transform.position, Quaternion.identity);
+        temp.AddComponent<UIDraggable2D>();
         QueryInputSlot newSlot = temp.GetComponent<QueryInputSlot>();
 
         newSlot.transform.SetParent(queryBoardPanel.transform);
-        print(temp);
+        temp.GetComponent<UIDraggable2D>().parent = newSlot.transform.parent.gameObject;
         if (newSlot)
         {
             newSlot.SetUp(currentItem);
             // Make the slot draggable
-            newSlot.AddComponent<Draggable2D>();
             newSlot.AddComponent<BoxCollider2D>(); // Ensure BoxCollider2D is attached
+            queryBoardInventory.items.Add(currentItem);
         }
     }
 }
