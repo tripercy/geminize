@@ -253,26 +253,6 @@
       },
       "url": "https://package.openupm.com"
     },
-    "com.utilities.audio": {
-      "version": "1.2.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.audio": "1.0.0",
-        "com.unity.modules.unitywebrequestaudio": "1.0.0",
-        "com.utilities.async": "2.1.6"
-      },
-      "url": "https://package.openupm.com"
-    },
-    "com.utilities.encoder.wav": {
-      "version": "1.2.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.utilities.audio": "1.2.1"
-      },
-      "url": "https://package.openupm.com"
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
