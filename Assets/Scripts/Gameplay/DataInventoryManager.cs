@@ -16,7 +16,6 @@ public class DataInventoryManager : MonoBehaviour
     [SerializeField] private GameObject dataPanel;
     [SerializeField] private GameObject queryBoardPanel;
     public InventoryItem currentItem;
-
     public void OnEnable()
     {
         ClearDataInventory();

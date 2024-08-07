@@ -31,7 +31,7 @@ public class OutputTemplateManager : MonoBehaviour
     {
         if (dropdown.options.Count != 1)
         {
-            for (int i = dropdown.options.Count; i > 0; i--)
+            for (int i = dropdown.options.Count - 1; i > 0; i--)
             {
                 dropdown.options.RemoveAt(i);
             }
