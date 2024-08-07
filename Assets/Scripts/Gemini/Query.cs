@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 public class Query : MonoBehaviour
 {
+    static Query instance = null;
     private const string sys_ins = "You are an assistance that help user extract data into structured json format.";
 
     private GeminiSchema buildSchema(string description, List<string> fields)
@@ -51,6 +52,19 @@ public class Query : MonoBehaviour
                 ResponseSchema = schema,
             }
         };
+    }
+
+    private Query() {
+        // TODO: Read API key from where?
+        GeminiManager.Instance.SetApiKey("");
+    }
+
+    public static Query getInstance() {
+        if (instance == null) {
+            instance = new Query();
+        }
+
+        return instance;
     }
 
     public async Task<string> query(string content, string description, List<string> fields)
