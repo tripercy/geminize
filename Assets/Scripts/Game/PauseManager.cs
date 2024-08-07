@@ -36,6 +36,9 @@ public class PauseManager : MonoBehaviour
         {
             BagChange();
         }
+        // else if (Input.GetKeyDown(Ke)) {
+
+        // }
     }
 
     public void PauseChange()

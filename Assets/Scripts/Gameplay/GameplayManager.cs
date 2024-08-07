@@ -9,6 +9,7 @@ public class GameplayMenu : MonoBehaviour
     public Signal outputTemplateSignal;
     public QueryBoardManager queryBoardManager;
     public OutputTemplateManager outputTemplateManager;
+    public GameObject gameplayMenuObject;
     public List<string> queryStatement;
 
     public void OnClickBtn() {
@@ -19,5 +20,15 @@ public class GameplayMenu : MonoBehaviour
         queryStatement.Add(outputTemplateManager.currentData);
         print(queryStatement[0]);
         print(queryStatement[1]);
+    }
+
+    void OnGameplayMenuChange()
+    {
+        if (gameplayMenuObject.activeInHierarchy) {
+            gameplayMenuObject.SetActive(false);
+        }
+        else {
+            gameplayMenuObject.SetActive(true);
+        }
     }
 }
