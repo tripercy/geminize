@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !Input.GetKeyDown(KeyCode.Escape))
         {
             PauseChange();
         }
@@ -36,14 +36,14 @@ public class PauseManager : MonoBehaviour
         {
             BagChange();
         }
-        // else if (Input.GetKeyDown(Ke)) {
-
-        // }
+        else if (queryPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape)) {
+            OnQueryBoardChange();
+        }
     }
 
     public void PauseChange()
     {
-        if (inventoryPanel.activeInHierarchy && queryPanel.activeInHierarchy) {
+        if (inventoryPanel.activeInHierarchy || queryPanel.activeInHierarchy) {
             return;
         }
         isPaused = !isPaused;
@@ -70,7 +70,7 @@ public class PauseManager : MonoBehaviour
     }
 
     public void BagChange() {
-        if (pausePanel.activeInHierarchy && queryPanel.activeInHierarchy) {
+        if (pausePanel.activeInHierarchy || queryPanel.activeInHierarchy) {
             return;
         }
         isPaused = !isPaused;
@@ -89,7 +89,7 @@ public class PauseManager : MonoBehaviour
     }
 
     public void OnQueryBoardChange() {
-        if (pausePanel.activeInHierarchy && inventoryPanel.activeInHierarchy) {
+        if (pausePanel.activeInHierarchy || inventoryPanel.activeInHierarchy) {
             return;
         }
         isPaused = !isPaused;

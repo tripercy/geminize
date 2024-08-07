@@ -11,23 +11,37 @@ public class GameplayMenu : MonoBehaviour
     public OutputTemplateManager outputTemplateManager;
     public GameObject gameplayMenuObject;
     public List<string> queryStatement;
+    public GameObject executeBtn;
+    public GameObject confirmBtn;
 
-    public void OnClickBtn() {
+    private void OnEnable()
+    {
+        executeBtn.SetActive(true);
+        confirmBtn.SetActive(false);
+    }
+    public void OnClickBtn()
+    {
         queryStatement = new List<string>();
         queryBoardSignal.Raise();
         outputTemplateSignal.Raise();
         queryStatement.Add(queryBoardManager.res);
         queryStatement.Add(outputTemplateManager.currentData);
-        print(queryStatement[0]);
-        print(queryStatement[1]);
+    }
+    public async void awaitForData()
+    {
+        
+        executeBtn.SetActive(false);
+        confirmBtn.SetActive(true);
     }
 
-    void OnGameplayMenuChange()
+    public void OnGameplayMenuChange()
     {
-        if (gameplayMenuObject.activeInHierarchy) {
+        if (gameplayMenuObject.activeInHierarchy)
+        {
             gameplayMenuObject.SetActive(false);
         }
-        else {
+        else
+        {
             gameplayMenuObject.SetActive(true);
         }
     }
