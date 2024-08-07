@@ -2,24 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 public class OutputObject : MonoBehaviour
 {
-    private Dictionary<string, string> data;
+    public static OutputObject Instance { get; private set; }
+    public Dictionary<string, string> output;
 
-    void Start()
+    void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
     }
 
-    public void query(string input) {
-        // TODO: quey gemini
-        string query_res = "{}";
+    public async Task generateOutput(string data, string fields)
+    {
+        List<string> fields_list = new List<string>(fields.Split(' '));
+        string resTask = await Query.getInstance().query(data, "", fields_list);
 
-        data = JsonUtility.FromJson<Dictionary<string, string>>(query_res);
+        output = JsonConvert.DeserializeObject<Dictionary<string, string>>(resTask);
     }
 
-    void display() {
-
-    }
 }
