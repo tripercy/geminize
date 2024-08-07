@@ -16,7 +16,6 @@ public class DataInventoryManager : MonoBehaviour
     [SerializeField] private GameObject dataPanel;
     [SerializeField] private GameObject queryBoardPanel;
     public InventoryItem currentItem;
-
     public void OnEnable()
     {
         ClearDataInventory();
@@ -55,7 +54,6 @@ public class DataInventoryManager : MonoBehaviour
 
     public void OnClickAdd()
     {
-
         GameObject temp = Instantiate(emptyQuerySlot, queryBoardPanel.transform.position, Quaternion.identity);
         temp.AddComponent<UIDraggable2D>();
         QueryInputSlot newSlot = temp.GetComponent<QueryInputSlot>();
