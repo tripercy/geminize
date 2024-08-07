@@ -10,6 +10,8 @@ public class GameplayMenu : MonoBehaviour
     public QueryBoardManager queryBoardManager;
     public OutputTemplateManager outputTemplateManager;
     public GameObject gameplayMenuObject;
+    public GameObject waitingObject;
+    public OutputManager outputmanager;
     public List<string> queryStatement;
     public GameObject executeBtn;
     public GameObject confirmBtn;
@@ -18,6 +20,7 @@ public class GameplayMenu : MonoBehaviour
     {
         executeBtn.SetActive(true);
         confirmBtn.SetActive(false);
+        waitingObject.SetActive(false);
     }
     public void OnClickBtn()
     {
@@ -26,12 +29,18 @@ public class GameplayMenu : MonoBehaviour
         outputTemplateSignal.Raise();
         queryStatement.Add(queryBoardManager.res);
         queryStatement.Add(outputTemplateManager.currentData);
+        waitingObject.SetActive(true);
+        AwaitForData();
     }
-    public async void awaitForData()
+    public async void AwaitForData()
     {
-        
+        print("HELLO");
+        await OutputObject.Instance.generateOutput(queryStatement[0], queryStatement[1]);
+        print(OutputObject.Instance.output);
         executeBtn.SetActive(false);
         confirmBtn.SetActive(true);
+        waitingObject.SetActive(false);
+        outputmanager.SetContent();
     }
 
     public void OnGameplayMenuChange()
