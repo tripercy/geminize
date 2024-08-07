@@ -5,6 +5,8 @@ public class Draggable2D : MonoBehaviour
     private Vector3 offset;
     private bool isDragging = false;
 
+
+    
     void OnMouseOver() {
         print(transform.gameObject.name);
     }
