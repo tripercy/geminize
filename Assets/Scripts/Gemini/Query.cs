@@ -53,12 +53,12 @@ public class Query : MonoBehaviour
         };
     }
 
-    public async Task<GeminiChatResponse> query(string content, string description, List<string> fields)
+    public async Task<string> query(string content, string description, List<string> fields)
     {
         GeminiChatRequest request = buildRequest(content, description, fields);
 
         GeminiChatResponse response = await GeminiManager.Instance.Request<GeminiChatResponse>(request);
 
-        return response;
+        return response.Parts[0].Text;
     }
 }

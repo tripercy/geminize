@@ -1,0 +1,8 @@
+{
+    "templates": [
+        {
+            "id": "garage_door",
+            "fields": ["password"]
+        }
+    ]
+}
