@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Device;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class PauseManager : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject inventoryPanel;
+    public static bool isReceivable = true;
     private bool isPaused;
     // Update is called once per frame
     private void Start()
@@ -19,30 +25,58 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseChange();
+            PauseChange();
+        }
+        else if (Input.GetKeyDown(KeyCode.B) && !LootableObject.isOpening) 
+        {
+            BagChange();
         }
     }
 
-    public void pauseChange()
+    public void PauseChange()
     {
-
+        if (inventoryPanel.activeInHierarchy) {
+            return;
+        }
         isPaused = !isPaused;
         if (isPaused)
         {
             pausePanel.SetActive(true);
             Time.timeScale = 0f;
+            isReceivable = false;
         }
         else
         {
             pausePanel.SetActive(false);
             Time.timeScale = 1f;
+            isReceivable = true;
         }
     }
 
-    public void exitToMenu() {
+    public void ExitToMenu() {
         SceneManager.LoadScene("MainMenu");
         if (Time.timeScale == 0f) {
             Time.timeScale = 1f;
+            isReceivable = true;
+        }
+    }
+
+    public void BagChange() {
+        if (pausePanel.activeInHierarchy) {
+            return;
+        }
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            inventoryPanel.SetActive(true);
+            Time.timeScale = 0f;
+            isReceivable = false;
+        }
+        else
+        {
+            inventoryPanel.SetActive(false);
+            Time.timeScale = 1f;
+            isReceivable = true;
         }
     }
 }

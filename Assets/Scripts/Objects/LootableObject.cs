@@ -7,17 +7,13 @@ using UnityEngine.UI;
 
 public class LootableObject : Interactable
 {
-    // Start is called before the first frame update
-    //Access UI (tag)
-    //Refference to dialog
-    //Reference to text
-    //String what the text
-    public Item recieveditem;
-    public Inventory playerInventory;
+    public InventoryItem receivedItem;
+    public PlayerInventory playerInventory;
     public Signal raiseItem;
     public bool isOpened;
     private Animator chestAnimator;
     public Text dialogText;
+    public static bool isOpening = false;
     private void Awake()
     {
         chestAnimator = GetComponent<Animator>();
@@ -25,16 +21,17 @@ public class LootableObject : Interactable
 
     private void Update()
     {
-        // print(isOpened);
-        if (Input.GetKeyDown(KeyCode.Space) && isInRange)
+        if (Input.GetKeyDown(KeyCode.Space) && isInRange && PauseManager.isReceivable)
         {
             if (!isOpened)
             {
                 OpenChest();
+                isOpening = true;
             }
             else
             {
                 ChestOpened();
+                isOpening = false;
             }
         }
     }
@@ -42,12 +39,11 @@ public class LootableObject : Interactable
     public void OpenChest()
     {
         chestAnimator.SetBool("isOpened", true);
-        playerInventory.currentItem = recieveditem;
-        playerInventory.currentItem.itemSprite = recieveditem.itemSprite;
-        playerInventory.AddItem(recieveditem);
+        playerInventory.currentItem = receivedItem;
+        playerInventory.items.Add(receivedItem);
         DialogBox.SetActive(true);
         ClueOff.SetActive(false);
-        dialogText.text = recieveditem.itemDescription;
+        dialogText.text = receivedItem.itemDescription;
         raiseItem.Raise();
         isOpened = true;
     }
@@ -55,12 +51,13 @@ public class LootableObject : Interactable
     public void ChestOpened()
     {
         DialogBox.SetActive(false);
-        playerInventory.currentItem = null;
         ClueOff.SetActive(false);
+        playerInventory.currentItem = null;
         raiseItem.Raise();
+
     }
 
-        void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag.CompareTo("Player") == 0 && !isOpened)
         {

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public LayerMask solidObjectsLayer;
     public VectorValue startingPoint;
-    public Inventory playerInventory;
+    public PlayerInventory playerInventory;
     public SpriteRenderer receiveItem;
 
     private void Start()
