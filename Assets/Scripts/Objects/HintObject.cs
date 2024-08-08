@@ -33,24 +33,4 @@ public class HintObject : Interactable
             }
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag.CompareTo("Player") == 0)
-        {
-            isInRange = true;
-            clueOn.Raise();
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag.CompareTo("Player") == 0)
-        {
-            isInRange = false;
-            DialogBox.SetActive(false);
-            ClueOff.SetActive(false);
-        }
-    }
-
 }
