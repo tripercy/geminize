@@ -13157,17 +13157,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6c962b3465048509779170d0d75aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactions: []
+  interactions:
+  - rid: 2179426849671348234
   defaultInteraction:
-    rid: 2179426849671348228
+    rid: 2179426849671348232
   references:
     version: 2
     RefIds:
-    - rid: 2179426849671348228
+    - rid: 2179426849671348232
       type: {class: ChatInteraction, ns: , asm: Assembly-CSharp}
       data:
         id: 1
         dialog: Tri dep trai
+        dialogBox: {fileID: 1433305682}
+        dialogText: {fileID: 770899167}
+    - rid: 2179426849671348234
+      type: {class: AddItemInteraction, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        inventory: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
         dialogBox: {fileID: 1433305682}
         dialogText: {fileID: 770899167}
 --- !u!4 &842212481
@@ -13479,7 +13487,7 @@ MonoBehaviour:
   m_CellSize: {x: 70, y: 70}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
-  m_ConstraintCount: 6
+  m_ConstraintCount: 5
 --- !u!114 &903740670
 MonoBehaviour:
   m_ObjectHideFlags: 0

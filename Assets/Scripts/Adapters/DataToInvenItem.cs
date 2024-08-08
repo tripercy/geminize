@@ -10,6 +10,8 @@ public class DataToInvenItem : Adapter<DataPiece, InventoryItem>
         item.itemDescription = obj.content;
         item.isUnique = true;
         item.usable = true;
+        item.itemSprite = Resources.LoadAll<Sprite>("Art/objects")[16];
+
         item.itemType = ScriptableObject.CreateInstance<ItemType>();
         item.itemType.typeName = "Data";
         item.itemType.typeDescription = "";
