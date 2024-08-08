@@ -12,7 +12,7 @@ public class GameplayMenu : MonoBehaviour
     public GameObject gameplayMenuObject;
     public GameObject waitingObject;
     public OutputManager outputmanager;
-    public List<string> queryStatement;
+    private List<string> queryStatement;
     public GameObject executeBtn;
     public GameObject confirmBtn;
 
