@@ -8,4 +8,7 @@ public class PlayerInventory : ScriptableObject
     public List<InventoryItem> items = new List<InventoryItem>();
     public InventoryItem currentItem;
 
+    void OnValidate() {
+        items.RemoveAll(item => item == null);
+    }
 }

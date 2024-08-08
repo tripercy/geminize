@@ -1,18 +1,20 @@
 
+using UnityEngine;
+
 public class DataToInvenItem : Adapter<DataPiece, InventoryItem>
 {
     public InventoryItem from(DataPiece obj)
     {
-        return new InventoryItem() {
-            itemName = obj.name,
-            itemDescription = obj.content,
-            isUnique = true,
-            usable = true,
-            itemType = new ItemType() {
-                typeName = "Data",
-                typeDescription = ""
-            }
-        };
+        var item = ScriptableObject.CreateInstance<InventoryItem>();
+        item.itemName = obj.name;
+        item.itemDescription = obj.content;
+        item.isUnique = true;
+        item.usable = true;
+        item.itemType = ScriptableObject.CreateInstance<ItemType>();
+        item.itemType.typeName = "Data";
+        item.itemType.typeDescription = "";
+
+        return item;
     }
 
 }

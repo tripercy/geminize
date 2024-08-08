@@ -12,6 +12,7 @@ public class ChatInteraction : Interaction
 
     void Start()
     {
+        // TODO: Load dialog
     }
 
     public override void trigger()
@@ -19,13 +20,11 @@ public class ChatInteraction : Interaction
         if (dialogBox.activeInHierarchy)
         {
             dialogBox.SetActive(false);
-            LootableObject.isOpening = false;
         }
         else
         {
             dialogBox.SetActive(true);
             dialogText.text = dialog;
-            LootableObject.isOpening = true;
         }
     }
 }
