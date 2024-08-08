@@ -12616,6 +12616,7 @@ MonoBehaviour:
   clueOn: {fileID: 11400000, guid: 4cc07636e18ed57448df7a555ffd436e, type: 2}
   ClueOff: {fileID: 1028033409}
   DialogBox: {fileID: 1433305682}
+  interactionContainer: {fileID: 0}
   receivedItem: {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
   playerInventory: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
   raiseItem: {fileID: 11400000, guid: 6f62b3637bd4a594089dd335be8200d7, type: 2}
@@ -13225,6 +13226,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781302631}
   m_CullTransparentMesh: 1
+--- !u!1 &842212479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 842212481}
+  - component: {fileID: 842212480}
+  m_Layer: 7
+  m_Name: InteractionContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &842212480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842212479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c962b3465048509779170d0d75aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - rid: 2179426849671348234
+  defaultInteraction:
+    rid: 2179426849671348232
+  references:
+    version: 2
+    RefIds:
+    - rid: 2179426849671348232
+      type: {class: ChatInteraction, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        dialog: Tri dep trai
+        dialogBox: {fileID: 1433305682}
+        dialogText: {fileID: 770899167}
+    - rid: 2179426849671348234
+      type: {class: AddItemInteraction, ns: , asm: Assembly-CSharp}
+      data:
+        id: 1
+        inventory: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
+        dialogBox: {fileID: 1433305682}
+        dialogText: {fileID: 770899167}
+--- !u!4 &842212481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842212479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1879634790}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &845584413
 GameObject:
   m_ObjectHideFlags: 0
@@ -13519,7 +13585,7 @@ MonoBehaviour:
   m_CellSize: {x: 70, y: 70}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
-  m_ConstraintCount: 6
+  m_ConstraintCount: 5
 --- !u!114 &903740670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14807,7 +14873,7 @@ GameObject:
   - component: {fileID: 1433305684}
   m_Layer: 5
   m_Name: DialogBox
-  m_TagString: Untagged
+  m_TagString: dialog_box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48946,7 +49012,7 @@ GameObject:
   - component: {fileID: 1879634789}
   - component: {fileID: 1879634788}
   - component: {fileID: 1879634787}
-  - component: {fileID: 1879634791}
+  - component: {fileID: 1879634792}
   m_Layer: 7
   m_Name: Sign
   m_TagString: hint
@@ -49108,10 +49174,11 @@ Transform:
   m_LocalPosition: {x: 18.5, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 842212481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1879634791
+--- !u!114 &1879634792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49120,15 +49187,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879634785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 666240c4996f58945876928c16d0c453, type: 3}
+  m_Script: {fileID: 11500000, guid: e13f366f44ad42d47a6a83d3a0d0d9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
   clueOn: {fileID: 11400000, guid: 548432e3f89eaa749947412753750aca, type: 2}
   ClueOff: {fileID: 718921469}
   DialogBox: {fileID: 1433305682}
-  dialogText: {fileID: 770899167}
-  dialog: 
+  interactionContainer: {fileID: 842212480}
 --- !u!1 &1887668507
 GameObject:
   m_ObjectHideFlags: 0
