@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5521853534368813976}
   - component: {fileID: 6136967430346953107}
   - component: {fileID: 2530240915635141212}
+  - component: {fileID: 2671957551972137093}
   m_Layer: 7
   m_Name: NPC Prefab
   m_TagString: Untagged
@@ -29,11 +30,10 @@ Transform:
   m_GameObject: {fileID: 2276208272932024096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.3848886, y: 2.1073804, z: -227.73637}
+  m_LocalPosition: {x: 6.3848886, y: 2.1073804, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1253742107380998695}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2777671452835576998
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -147924159
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1762823305, guid: 079b3646fcb5c7541be83c92ec12228c, type: 3}
+  m_Sprite: {fileID: 751321431, guid: cd63631bc77dcff4eb8b34b7018bd238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4375, y: 0.71875}
+  m_Offset: {x: 0.4992044, y: 0.49717557}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 0.875, y: 1.4375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.875, y: 1.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 1.4375}
+  m_Size: {x: 0.9984088, y: 0.99435115}
   m_EdgeRadius: 0
 --- !u!61 &6136967430346953107
 BoxCollider2D:
@@ -165,18 +165,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4375, y: 0.43}
+  m_Offset: {x: 0.49639988, y: 0.20001125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 0.875, y: 1.4375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.875, y: 1.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.89, y: 2.05}
+  m_Size: {x: 0.9965801, y: 1.5900226}
   m_EdgeRadius: 0
 --- !u!114 &2530240915635141212
 MonoBehaviour:
@@ -191,49 +191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
-  clueOn: {fileID: 0}
+  clueOn: {fileID: 11400000, guid: 548432e3f89eaa749947412753750aca, type: 2}
   ClueOff: {fileID: 0}
   dialogManager: {fileID: 0}
-  interactionContainer: {fileID: 189634576376261475}
---- !u!1 &9089766605221815439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1253742107380998695}
-  - component: {fileID: 189634576376261475}
-  m_Layer: 0
-  m_Name: InteractionContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1253742107380998695
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089766605221815439}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5810978532792874987}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &189634576376261475
+  interactionContainer: {fileID: 2671957551972137093}
+--- !u!114 &2671957551972137093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089766605221815439}
+  m_GameObject: {fileID: 2276208272932024096}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e6c962b3465048509779170d0d75aff, type: 3}
