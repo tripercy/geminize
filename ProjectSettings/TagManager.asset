@@ -6,6 +6,7 @@ TagManager:
   tags:
   - lootable
   - hint
+  - dialog_box
   layers:
   - Default
   - TransparentFX

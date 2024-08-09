@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +10,7 @@ public class LootableObject : Interactable
     private Animator chestAnimator;
     public Text dialogText;
     public static bool isOpening = false;
+
     private void Awake()
     {
         chestAnimator = GetComponent<Animator>();
@@ -54,15 +51,6 @@ public class LootableObject : Interactable
         ClueOff.SetActive(false);
         playerInventory.currentItem = null;
         raiseItem.Raise();
-
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag.CompareTo("Player") == 0 && !isOpened)
-        {
-            isInRange = true;
-            clueOn.Raise();
-        }
-    }
 }
