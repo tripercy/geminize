@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5521853534368813976}
   - component: {fileID: 6136967430346953107}
   - component: {fileID: 2530240915635141212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NPC Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -147924159
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1762823305, guid: 079b3646fcb5c7541be83c92ec12228c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -193,7 +193,7 @@ MonoBehaviour:
   isInRange: 0
   clueOn: {fileID: 0}
   ClueOff: {fileID: 0}
-  DialogBox: {fileID: 0}
+  dialogManager: {fileID: 0}
   interactionContainer: {fileID: 189634576376261475}
 --- !u!1 &9089766605221815439
 GameObject:
