@@ -7,24 +7,17 @@ public class ChatInteraction : Interaction
     public string id;
     public string dialog;
 
-    public GameObject dialogBox;
-    public Text dialogText;
+    public DialogManager dialogManager;
 
-    void Start()
+    void loadDialog()
     {
         // TODO: Load dialog
     }
 
-    public override void trigger()
+    public override GameObject trigger()
     {
-        if (dialogBox.activeInHierarchy)
-        {
-            dialogBox.SetActive(false);
-        }
-        else
-        {
-            dialogBox.SetActive(true);
-            dialogText.text = dialog;
-        }
+        loadDialog();
+        dialogManager.open(dialog);
+        return dialogManager.gameObject;
     }
 }

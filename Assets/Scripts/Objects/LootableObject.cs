@@ -10,6 +10,7 @@ public class LootableObject : Interactable
     private Animator chestAnimator;
     public Text dialogText;
     public static bool isOpening = false;
+    public GameObject DialogBox;
 
     private void Awake()
     {

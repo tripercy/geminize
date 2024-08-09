@@ -7,8 +7,7 @@ public class AddItemInteraction : Interaction
     public string id;
     public PlayerInventory inventory;
 
-    public GameObject dialogBox;
-    public Text dialogText;
+    public DialogManager dialogManager;
 
     private DataPiece originalData;
 
@@ -23,20 +22,17 @@ public class AddItemInteraction : Interaction
         };
     }
 
-    public override void trigger()
+    public override GameObject trigger()
     {
-        if (dialogBox.activeInHierarchy)
-        {
-            dialogBox.SetActive(false);
-        } else {
-            Adapter<DataPiece, InventoryItem> adt = new DataToInvenItem();
-            InventoryItem item = adt.from(originalData);
+        Adapter<DataPiece, InventoryItem> adt = new DataToInvenItem();
+        InventoryItem item = adt.from(originalData);
 
-            inventory.currentItem = item;
-            inventory.items.Add(item);
+        inventory.currentItem = item;
+        inventory.items.Add(item);
 
-            dialogText.text = originalData.name + ": " + originalData.content;
-            dialogBox.SetActive(true);
-        }
+        var s = originalData.name + ": " + originalData.content;
+        dialogManager.open(s);
+
+        return dialogManager.gameObject;
     }
 }
