@@ -12,6 +12,7 @@ public class OutputManager : MonoBehaviour
     private void OnEnable() {
         outputContent.text = "";
     }
+
     public void SetContent() {
         // Set content after query successful with signal raise
         outputContent.text = string.Join(Environment.NewLine, OutputObject.Instance.output);

@@ -22,6 +22,7 @@ public class GameplayMenu : MonoBehaviour
         confirmBtn.SetActive(false);
         waitingObject.SetActive(false);
     }
+
     public void OnClickBtn()
     {
         queryStatement = new List<string>();
@@ -32,11 +33,10 @@ public class GameplayMenu : MonoBehaviour
         waitingObject.SetActive(true);
         AwaitForData();
     }
+
     public async void AwaitForData()
     {
-        print("HELLO");
         await OutputObject.Instance.generateOutput(queryStatement[0], queryStatement[1]);
-        print(OutputObject.Instance.output);
         executeBtn.SetActive(false);
         confirmBtn.SetActive(true);
         waitingObject.SetActive(false);
@@ -45,6 +45,7 @@ public class GameplayMenu : MonoBehaviour
 
     public void OnGameplayMenuChange()
     {
+        // TODO: Raise signale here
         if (gameplayMenuObject.activeInHierarchy)
         {
             gameplayMenuObject.SetActive(false);
