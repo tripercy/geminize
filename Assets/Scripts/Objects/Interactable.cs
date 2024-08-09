@@ -7,27 +7,44 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public Signal clueOn;
     public GameObject ClueOff;
-    public GameObject DialogBox;
+    public DialogManager dialogManager;
 
     public InteractionContainer interactionContainer;
+    private GameObject interactingObject;
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && isInRange && PauseManager.isReceivable) {
+    void Start()
+    {
+        interactingObject = dialogManager.gameObject;
+    }
+
+    void Update()
+    {
+        if (interactingObject.activeInHierarchy) {
+            return;
+        }
+
+        if (interactionContainer.interactions.Count == 0 && interactionContainer.defaultInteraction == null)
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isInRange && PauseManager.isReceivable)
+        {
             Interaction interaction;
             int cnt = interactionContainer.interactions.Count;
-            if (cnt > 0) {
+            if (cnt > 0)
+            {
                 interaction = interactionContainer.interactions[cnt - 1];
                 interactionContainer.interactions.RemoveAt(cnt - 1);
-            } else {
+            }
+            else
+            {
                 interaction = interactionContainer.defaultInteraction;
             }
 
-            interaction.trigger();
+            interactingObject = interaction.trigger();
         }
 
-        if (interactionContainer.interactions.Count == 0 && interactionContainer.defaultInteraction == null) {
-            this.transform.parent.gameObject.SetActive(false);
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -41,10 +58,10 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag.CompareTo("Player") == 0)
+        if (this.gameObject.activeInHierarchy && other.tag.CompareTo("Player") == 0)
         {
             isInRange = false;
-            DialogBox.SetActive(false);
+            dialogManager.close();
             ClueOff.SetActive(false);
         }
     }
