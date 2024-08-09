@@ -9,13 +9,14 @@ public class ChatInteraction : Interaction
 
     public DialogManager dialogManager;
 
-    void Start()
+    void loadDialog()
     {
         // TODO: Load dialog
     }
 
     public override GameObject trigger()
     {
+        loadDialog();
         dialogManager.open(dialog);
         return dialogManager.gameObject;
     }

@@ -11,31 +11,41 @@ public class Interactable : MonoBehaviour
 
     public InteractionContainer interactionContainer;
     private GameObject interactingObject;
-
-    void Start()
-    {
-        interactingObject = dialogManager.gameObject;
-    }
+    private Interaction interacted;
 
     void Update()
     {
-        if (interactingObject.activeInHierarchy) {
+        if (interactingObject != null && interactingObject.activeInHierarchy)
+        {
             return;
+        }
+
+        int cnt = interactionContainer.interactions.Count;
+
+        if (interacted != null)
+        {
+            if (interacted.checkOutput())
+            {
+                interactionContainer.interactions.RemoveAt(cnt - 1);
+                cnt -= 1;
+            }
+            interacted = null;
         }
 
         if (interactionContainer.interactions.Count == 0 && interactionContainer.defaultInteraction == null)
         {
+            dialogManager.close();
+            ClueOff.SetActive(false);
             this.gameObject.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isInRange && PauseManager.isReceivable)
         {
             Interaction interaction;
-            int cnt = interactionContainer.interactions.Count;
             if (cnt > 0)
             {
                 interaction = interactionContainer.interactions[cnt - 1];
-                interactionContainer.interactions.RemoveAt(cnt - 1);
+                interacted = interaction;
             }
             else
             {

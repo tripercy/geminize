@@ -19,6 +19,7 @@ public class OutputObject : MonoBehaviour
         }
 
         Instance = this;
+        Instance.output = new Dictionary<string, string>();
     }
 
     public async Task generateOutput(string data, string fields)
