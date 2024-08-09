@@ -28,11 +28,11 @@ public class PauseManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseChange();
         }
-        else if (Input.GetKeyDown(KeyCode.B) && !LootableObject.isOpening) 
+        else if (Input.GetKeyDown(KeyCode.B)) 
         {
             BagChange();
         }
