@@ -1,46 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Device;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using UnityEngine.XR;
-using Screen = UnityEngine.Screen;
 
 public class PauseManager : MonoBehaviour
 {
-
     public GameObject pausePanel;
     public GameObject inventoryPanel;
     public GameObject queryPanel;
-    public Signal querySignal;
     public static bool isReceivable = true;
     private bool isPaused;
     private Vector3 closedPosition;
-    private Vector3 openPosition;
-    private RectTransform pausePanelPos;
-    // Update is called once per frame
+    private RectTransform currentGo;
+
     private void Start()
     {
-        pausePanelPos = GetComponent<RectTransform>();
         isPaused = false;
         inventoryPanel.SetActive(false);
         pausePanel.SetActive(false);
         queryPanel.SetActive(false);
         closedPosition = new Vector3(0, -Screen.height, 0);
-        openPosition = pausePanelPos.localPosition;
 
-        this.GetComponent<RectTransform>().localPosition = closedPosition;
+        // Move all panels to the closed position initially
+        inventoryPanel.GetComponent<RectTransform>().localPosition = closedPosition;
+        queryPanel.GetComponent<RectTransform>().localPosition = closedPosition;
+        pausePanel.GetComponent<RectTransform>().localPosition = closedPosition;
     }
-    void Update()
+
+    private void Update()
     {
         if (inventoryPanel.activeInHierarchy || queryPanel.activeInHierarchy || pausePanel.activeInHierarchy)
         {
             isPaused = true;
         }
+        else
+        {
+            isPaused = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (queryPanel.activeInHierarchy)
@@ -48,7 +44,9 @@ public class PauseManager : MonoBehaviour
                 OnQueryBoardChange();
             }
             else
+            {
                 PauseChange();
+            }
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
@@ -66,14 +64,11 @@ public class PauseManager : MonoBehaviour
         if (isPaused)
         {
             pausePanel.SetActive(true);
-            // MoveObject(pausePanel.transform.position);
             Time.timeScale = 0f;
             isReceivable = false;
         }
         else
         {
-            pausePanel.SetActive(false);
-            MoveObject(closedPosition);
             Time.timeScale = 1f;
             isReceivable = true;
         }
@@ -99,14 +94,13 @@ public class PauseManager : MonoBehaviour
         if (isPaused)
         {
             inventoryPanel.SetActive(true);
-            // MoveObject(inventoryPanel.transform.position);
+            MoveObject(inventoryPanel.GetComponent<RectTransform>(), Vector3.zero);
             Time.timeScale = 0f;
             isReceivable = false;
         }
         else
         {
-            inventoryPanel.SetActive(false);
-            // MoveObject(pausePanel.transform.position);
+            MoveObject(inventoryPanel.GetComponent<RectTransform>(), closedPosition);
             Time.timeScale = 1f;
             isReceivable = true;
         }
@@ -122,32 +116,37 @@ public class PauseManager : MonoBehaviour
         if (isPaused)
         {
             queryPanel.SetActive(true);
-            // MoveObject(queryPanel.transform.position);
+            MoveObject(queryPanel.GetComponent<RectTransform>(), Vector3.zero);
             Time.timeScale = 0f;
             isReceivable = false;
         }
         else
         {
-            queryPanel.SetActive(false);
-            // MoveObject(pausePanel.transform.position);
+            MoveObject(queryPanel.GetComponent<RectTransform>(), closedPosition);
             Time.timeScale = 1f;
             isReceivable = true;
         }
     }
 
-    public void MoveObject(Vector3 position)
+    public void MoveObject(RectTransform currentGO, Vector3 targetPosition)
     {
         StopAllCoroutines();
-        StartCoroutine(SmoothTransition(isPaused ? openPosition : closedPosition));
+        StartCoroutine(SmoothTransition(currentGO, targetPosition));
     }
 
-    private IEnumerator SmoothTransition(Vector3 targetPosition)
+    private IEnumerator SmoothTransition(RectTransform currentGo, Vector3 targetPosition)
     {
-        while (Vector3.Distance(pausePanelPos.localPosition, targetPosition) > 0.01f)
+        while (Vector3.Distance(currentGo.localPosition, targetPosition) > 0.01f)
         {
-            pausePanelPos.localPosition = Vector3.Lerp(pausePanelPos.localPosition, targetPosition, 20 * Time.deltaTime);
+            currentGo.localPosition = Vector3.Lerp(currentGo.localPosition, targetPosition, 5f * Time.unscaledDeltaTime);
             yield return null;
         }
-        pausePanelPos.localPosition = targetPosition;
+        currentGo.localPosition = targetPosition;
+
+        // Deactivate the panel if it's moved to the closed position
+        if (targetPosition == closedPosition)
+        {
+            currentGo.gameObject.SetActive(false);
+        }
     }
 }
