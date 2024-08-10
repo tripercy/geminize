@@ -18,5 +18,5 @@ public class ScrollRectNoDrag : ScrollRect {
 	}
 	public override void OnEndDrag(PointerEventData eventData) {
 		parent.GetComponent<UIDraggable2D>().OnEndDrag(eventData);
-	 }
+	}
 }
