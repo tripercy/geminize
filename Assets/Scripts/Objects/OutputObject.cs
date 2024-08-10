@@ -7,20 +7,25 @@ using Newtonsoft.Json;
 
 public class OutputObject : MonoBehaviour
 {
-    public static OutputObject Instance { get; private set; }
     public Dictionary<string, string> output;
 
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-            return;
-        }
+    private static OutputObject _Instance;
+	public static OutputObject Instance
+	{
+		get
+		{
+			if (!_Instance)
+			{
+				_Instance = new GameObject().AddComponent<OutputObject>();
+				// name it for easy recognition
+				_Instance.name = _Instance.GetType().ToString();
+				// mark root as DontDestroyOnLoad();
+				DontDestroyOnLoad(_Instance.gameObject);
+			}
+			return _Instance;
+		}
+	}
 
-        Instance = this;
-        Instance.output = new Dictionary<string, string>();
-    }
 
     public async Task generateOutput(string data, string fields)
     {

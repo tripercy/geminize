@@ -10,8 +10,13 @@ public class AskInteraction : Interaction
     public Dictionary<string, string> expected;
 
     void loadExpected() {
-        expected = new Dictionary<string, string>();
-        expected["password"] = "1234";
+        var loader = QuestionsLoader.Instance;
+
+        foreach (var x in loader.container.questions) {
+            if (x.id.CompareTo(id) == 0) {
+                expected = x.dict;
+            }
+        }
     }
 
     public override GameObject trigger()
