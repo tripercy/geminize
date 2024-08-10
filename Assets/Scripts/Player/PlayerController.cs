@@ -3,6 +3,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public LayerMask solidObjectsLayer;
     public VectorValue startingPoint;
+    public int sceneIndex;
     public PlayerInventory playerInventory;
     public SpriteRenderer receiveItem;
 
@@ -29,27 +31,39 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
+        sceneIndex = startingPoint.sceneIndex;
+    }
+
+    private void Awake()
+    {
+        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+
+        for (int i = 1; i < listeners.Length; i++)
+        {
+            listeners[i].enabled = false; // Disable extra AudioListeners
+        }
     }
 
     void Update()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentState == PlayerState.interact)
         {
             return;
         }
 
-            input = Vector3.zero;
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
-            if (input.x != 0)
-            {
-                input.y = 0;
-            }
-            else
-            {
-                input.x = 0;
-            }
-        
+        input = Vector3.zero;
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
+        if (input.x != 0)
+        {
+            input.y = 0;
+        }
+        else
+        {
+            input.x = 0;
+        }
+
         if (currentState == PlayerState.walk)
         {
             UpdateAnimationAndMove();

@@ -23,7 +23,6 @@ public class PauseManager : MonoBehaviour
         // Move all panels to the closed position initially
         inventoryPanel.GetComponent<RectTransform>().localPosition = closedPosition;
         queryPanel.GetComponent<RectTransform>().localPosition = closedPosition;
-        pausePanel.GetComponent<RectTransform>().localPosition = closedPosition;
     }
 
     private void Update()
@@ -73,6 +72,7 @@ public class PauseManager : MonoBehaviour
         }
         else
         {
+            pausePanel.SetActive(false);
             Time.timeScale = 1f;
             isReceivable = true;
         }

@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGame() {
         gameSaveManager.ResetGame();
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void Exit() {
