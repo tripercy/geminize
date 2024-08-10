@@ -16,4 +16,13 @@ public class AudioManager : MonoBehaviour
             backgroundMusic.Play();
         }
     }
+
+    private void Update() {
+        if (!backgroundMusic.isPlaying) {
+            if (backgroundMusic != null) {
+            backgroundMusic.clip = sound;
+            backgroundMusic.Play();
+        }
+        }
+    }
 }

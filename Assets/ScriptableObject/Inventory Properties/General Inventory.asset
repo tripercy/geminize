@@ -12,13 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f492b4c425ff19a4bbfc0804856256f2, type: 3}
   m_Name: General Inventory
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
-  - {fileID: 11400000, guid: 837bf7cdd1200254e824de5f7b4e7772, type: 2}
-  - {fileID: 11400000, guid: 959ac228505cd9d43b1beef8582f9c02, type: 2}
-  - {fileID: 11400000, guid: d678be1d84e8cf946b0c87d2bff64fc9, type: 2}
-  - {fileID: 11400000, guid: 635ef90b434d4454e90a9d0037369773, type: 2}
-  - {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
-  - {fileID: 11400000, guid: 837bf7cdd1200254e824de5f7b4e7772, type: 2}
-  - {fileID: 11400000, guid: 837bf7cdd1200254e824de5f7b4e7772, type: 2}
+  items: []
   currentItem: {fileID: 0}

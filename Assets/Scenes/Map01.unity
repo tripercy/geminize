@@ -758,10 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
   player: {fileID: 1575589412}
-  scriptableObjects:
-  - {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
-  - {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
-  - {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
+  scriptableObjects: []
 --- !u!4 &198665239
 Transform:
   m_ObjectHideFlags: 0
@@ -11670,7 +11667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &513983893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13498,7 +13495,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11131811, y: -0.2585144}
+  m_Offset: {x: -0.11131811, y: -0.06991863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13509,7 +13506,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5273538, y: 1.1445465}
+  m_Size: {x: 2.5273538, y: 0.76735497}
   m_EdgeRadius: 0
 --- !u!4 &782813797
 Transform:
@@ -14198,7 +14195,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1930990251
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -8865634, guid: ca810450ba085674995d323e0ee468f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14208,7 +14205,7 @@ SpriteRenderer:
   m_Size: {x: 0.9375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &994567989

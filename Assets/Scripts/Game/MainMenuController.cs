@@ -8,11 +8,15 @@ public class MainMenuController : MonoBehaviour
     public GameObject mainMenu;
     private int sceneIndex = 1;
 
-    public void newGame() {
+    public void typeNameewGame() {
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 
-    public void exit() {
+    public void LoadGame() {
+        
+    }
+
+    public void Exit() {
         Application.Quit();;
     }
 }
