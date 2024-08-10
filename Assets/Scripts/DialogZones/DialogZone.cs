@@ -5,7 +5,7 @@ class DialogZone : MonoBehaviour
 {
     [TextArea]
     public List<string> dialogs;
-    public bool activeOnce = true;
+    public bool activateOnce = true;
     public DialogManager dialogManager;
 
     void OnTriggerEnter2D()
@@ -13,7 +13,7 @@ class DialogZone : MonoBehaviour
         if (this.gameObject.activeInHierarchy)
         {
             dialogManager.startDialog(dialogs);
-            if (activeOnce) {
+            if (activateOnce) {
                 Destroy(this.gameObject);
             }
         }
