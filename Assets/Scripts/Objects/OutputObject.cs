@@ -26,6 +26,10 @@ public class OutputObject : MonoBehaviour
 		}
 	}
 
+    void Awake() {
+        output = new Dictionary<string, string>();
+    }
+
 
     public async Task generateOutput(string data, string fields)
     {

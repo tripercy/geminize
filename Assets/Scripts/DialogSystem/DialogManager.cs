@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,11 +6,20 @@ public class DialogManager : MonoBehaviour
 {
     public Text text;
 
+    private Queue<string> dialogs = new Queue<string>();
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.gameObject.SetActive(false);
+            if (dialogs.Count == 0)
+            {
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                text.text = dialogs.Dequeue();
+            }
         }
     }
 
@@ -23,6 +33,17 @@ public class DialogManager : MonoBehaviour
     {
         text.text = s;
         this.gameObject.SetActive(true);
+    }
+
+    public void startDialog(List<string> input)
+    {
+        if (input.Count == 0) return;
+
+        foreach (var s in input)
+        {
+            dialogs.Enqueue(s);
+        }
+        open(dialogs.Dequeue());
     }
 
     public void close()
