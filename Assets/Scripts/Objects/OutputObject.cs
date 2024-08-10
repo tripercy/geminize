@@ -30,7 +30,7 @@ public class OutputObject : MonoBehaviour
     public async Task generateOutput(string data, string fields)
     {
         List<string> fields_list = new List<string>(fields.Split(' '));
-        string resTask = await Query.getInstance().query(data, "", fields_list);
+        string resTask = await Query.Instance.query(data, "", fields_list);
 
         output = JsonConvert.DeserializeObject<Dictionary<string, string>>(resTask);
     }

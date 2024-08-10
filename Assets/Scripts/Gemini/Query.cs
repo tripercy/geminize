@@ -8,8 +8,24 @@ using System.Threading.Tasks;
 
 public class Query : MonoBehaviour
 {
-    static Query instance = null;
     private const string sys_ins = "You are an assistance that help user extract data into structured json format.";
+
+    private static Query _Instance;
+    public static Query Instance
+    {
+        get
+        {
+            if (!_Instance)
+            {
+                _Instance = new GameObject().AddComponent<Query>();
+                // name it for easy recognition
+                _Instance.name = _Instance.GetType().ToString();
+                // mark root as DontDestroyOnLoad();
+                DontDestroyOnLoad(_Instance.gameObject);
+            }
+            return _Instance;
+        }
+    }
 
     private GeminiSchema buildSchema(string description, List<string> fields)
     {
@@ -54,17 +70,10 @@ public class Query : MonoBehaviour
         };
     }
 
-    private Query() {
+    void Awake()
+    {
         // TODO: Read API key from where?
         GeminiManager.Instance.SetApiKey("");
-    }
-
-    public static Query getInstance() {
-        if (instance == null) {
-            instance = new Query();
-        }
-
-        return instance;
     }
 
     public async Task<string> query(string content, string description, List<string> fields)
