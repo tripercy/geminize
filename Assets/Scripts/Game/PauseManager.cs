@@ -52,6 +52,10 @@ public class PauseManager : MonoBehaviour
         {
             BagChange();
         }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            OnQueryBoardChange();
+        }
     }
 
     public void PauseChange()
