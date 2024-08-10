@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject mainMenu;
     private int sceneIndex = 1;
 
-    public void typeNameewGame() {
+    public void NewGame() {
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 

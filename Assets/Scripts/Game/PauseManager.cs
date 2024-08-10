@@ -37,29 +37,36 @@ public class PauseManager : MonoBehaviour
     }
     void Update()
     {
+        if (inventoryPanel.activeInHierarchy || queryPanel.activeInHierarchy || pausePanel.activeInHierarchy)
+        {
+            isPaused = true;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseChange();
+            if (queryPanel.activeInHierarchy)
+            {
+                OnQueryBoardChange();
+            }
+            else
+                PauseChange();
         }
-        else if (Input.GetKeyDown(KeyCode.B)) 
+        else if (Input.GetKeyDown(KeyCode.B))
         {
             BagChange();
-        }
-        else if (queryPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape)) {
-            OnQueryBoardChange();
         }
     }
 
     public void PauseChange()
     {
-        if (inventoryPanel.activeInHierarchy || queryPanel.activeInHierarchy) {
+        if (inventoryPanel.activeInHierarchy || queryPanel.activeInHierarchy)
+        {
             return;
         }
         isPaused = !isPaused;
         if (isPaused)
         {
             pausePanel.SetActive(true);
-            MoveObject(pausePanel.transform.position);
+            // MoveObject(pausePanel.transform.position);
             Time.timeScale = 0f;
             isReceivable = false;
         }
@@ -72,57 +79,64 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void ExitToMenu() {
+    public void ExitToMenu()
+    {
         SceneManager.LoadScene("MainMenu");
-        if (Time.timeScale == 0f) {
+        if (Time.timeScale == 0f)
+        {
             Time.timeScale = 1f;
             isReceivable = true;
         }
     }
 
-    public void BagChange() {
-        if (pausePanel.activeInHierarchy || queryPanel.activeInHierarchy) {
+    public void BagChange()
+    {
+        if (pausePanel.activeInHierarchy || queryPanel.activeInHierarchy)
+        {
             return;
         }
         isPaused = !isPaused;
         if (isPaused)
         {
             inventoryPanel.SetActive(true);
-            MoveObject(inventoryPanel.transform.position);
+            // MoveObject(inventoryPanel.transform.position);
             Time.timeScale = 0f;
             isReceivable = false;
         }
         else
         {
             inventoryPanel.SetActive(false);
-            MoveObject(pausePanel.transform.position);
+            // MoveObject(pausePanel.transform.position);
             Time.timeScale = 1f;
             isReceivable = true;
         }
     }
 
-    public void OnQueryBoardChange() {
-        if (pausePanel.activeInHierarchy || inventoryPanel.activeInHierarchy) {
+    public void OnQueryBoardChange()
+    {
+        if (pausePanel.activeInHierarchy || inventoryPanel.activeInHierarchy)
+        {
             return;
         }
         isPaused = !isPaused;
         if (isPaused)
         {
             queryPanel.SetActive(true);
-            MoveObject(queryPanel.transform.position);
+            // MoveObject(queryPanel.transform.position);
             Time.timeScale = 0f;
             isReceivable = false;
         }
         else
         {
             queryPanel.SetActive(false);
-            MoveObject(pausePanel.transform.position);
+            // MoveObject(pausePanel.transform.position);
             Time.timeScale = 1f;
             isReceivable = true;
         }
     }
 
-    public void MoveObject(Vector3 position) {
+    public void MoveObject(Vector3 position)
+    {
         StopAllCoroutines();
         StartCoroutine(SmoothTransition(isPaused ? openPosition : closedPosition));
     }
