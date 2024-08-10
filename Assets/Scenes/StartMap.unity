@@ -7121,6 +7121,16 @@ PrefabInstance:
       propertyPath: managedReferences[2179426849671348245].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[0]
+      value: "A robot\u2019s mind is often compared to a black box: something goes
+        in, something else goes out, but humans can\u2019t comprehend where that
+        \u201Csomething else\u201D comes from... "
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7552,6 +7562,16 @@ PrefabInstance:
       propertyPath: managedReferences[2179426849671348245].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[0]
+      value: 'The robot can add data to its memory by interacting with data container
+        like USB, scanning a QR code, ... The robot can also acquire Output Templates:
+        the black box instructions output format that the robot can understand. '
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15905,6 +15925,16 @@ PrefabInstance:
       propertyPath: managedReferences[2179426849671348245].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[0]
+      value: 'The robot action is restricted by its black box''s command. Whenever
+        it reach something that needs more a complex interaction (such as input a
+        password to a door), it will wait for the Black Box to build a response. '
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -16919,6 +16949,16 @@ PrefabInstance:
       propertyPath: managedReferences[2179426849671348245].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[0]
+      value: 'The Black box itself has multiple running parts, each part with its
+        own functional purpose, so its job is mainly getting the correct data from
+        the robot memory and feed that data to the correct part. '
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -17574,7 +17614,8 @@ MonoBehaviour:
       type: {class: ChatInteraction, ns: , asm: Assembly-CSharp}
       data:
         id: usb
-        dialog: 'There is a USB labeled: "Door passcode"'
+        dialog:
+        - 'There is a USB labeled: "Door"'
         dialogManager: {fileID: 2126359091}
 --- !u!114 &1307521439
 MonoBehaviour:
@@ -49746,6 +49787,22 @@ PrefabInstance:
       propertyPath: managedReferences[2179426849671348246].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[0]
+      value: Shh...Open your inventory by sending a 'B' command
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[1]
+      value: And use your data for query by clicking 'Add'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348245].dialog.Array.data[2]
+      value: And use your data for query by clicking 'Add'
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 
