@@ -21,7 +21,7 @@ public class QueryBoardManager : MonoBehaviour
     public void OnEnable()
     {
         ClearDataInventory();
-        NewQueyardsInventory();
+        NewQueryInventory();
     }
 
     void ClearDataInventory()
@@ -36,7 +36,7 @@ public class QueryBoardManager : MonoBehaviour
         }
     }
 
-    void NewQueyardsInventory()
+    void NewQueryInventory()
     {
         for (int i = 0; i < queryBoardPanel.transform.childCount; i++)
         {
@@ -90,7 +90,6 @@ public class QueryBoardManager : MonoBehaviour
         {
             dataPanelParent.SetActive(true);
             queryBoardAddBtn.SetActive(false);
-
         }
     }
 }

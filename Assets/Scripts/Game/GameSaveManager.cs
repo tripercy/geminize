@@ -31,7 +31,7 @@ public class GameSaveManager : MonoBehaviour
     public void SaveGame()
     {
         // position.initialValue = player.gameObject.transform.position;
-        SceneManager.GetActiveScene();
+        // SceneManager.GetActiveScene();
         for (int i = 0; i < scriptableObjects.Count; i++)
         {
             FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
