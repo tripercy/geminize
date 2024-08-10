@@ -1,9 +1,9 @@
 {
-    "dataPieces": [
+    "data_pieces": [
         {
-            "id": "garage_door",
+            "id": "door_passcode",
             "name": "Garage door instruction",
-            "content": "Toggle the door with the password 0359a"
+            "content": "Open the door with passcode 0359"
         },
         {
             "id": "the_vortex",

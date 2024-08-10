@@ -27094,7 +27094,7 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 140
       m_TileSpriteIndex: 140
-      m_TileMatrixIndex: 1
+      m_TileMatrixIndex:[<0;90;46M 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -27122,7 +27122,7 @@ Tilemap:
   - first: {x: 31, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 140
+      m_TileI[<0;90;46mndex: 140
       m_TileSpriteIndex: 140
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
@@ -77553,3 +77553,4 @@ SceneRoots:
   - {fileID: 933662215}
   - {fileID: 198665239}
   - {fileID: 541911917}
+

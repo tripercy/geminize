@@ -1,5 +1,5 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEditor;
 
 [System.Serializable]
 public class AddItemInteraction : Interaction
@@ -11,19 +11,22 @@ public class AddItemInteraction : Interaction
 
     private DataPiece originalData;
 
-    public AddItemInteraction()
+    void LoadData()
     {
-        // TODO: Load data piece
-        originalData = new DataPiece()
-        {
-            id = id,
-            name = "hi",
-            content = "Hello world"
-        };
+        DataPiecesLoader dpl = DataPiecesLoader.Instance;
+        var container = dpl.container;
+        
+        foreach (var dataPiece in container.data_pieces) {
+            if (dataPiece.id == id) {
+                originalData = dataPiece;
+                break;
+            }
+        }
     }
 
     public override GameObject trigger()
     {
+        LoadData();
         Adapter<DataPiece, InventoryItem> adt = new DataToInvenItem();
         InventoryItem item = adt.from(originalData);
 
