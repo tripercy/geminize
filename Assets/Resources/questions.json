@@ -1,0 +1,10 @@
+{
+    "questions": [
+        {
+            "id": "start_door",
+            "dict": {
+                "passcode": "0359"
+            }
+        }
+    ]
+}
