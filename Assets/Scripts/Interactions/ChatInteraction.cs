@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -6,6 +5,7 @@ using System.Collections.Generic;
 public class ChatInteraction : Interaction
 {
     public string id;
+    [TextArea]
     public List<string> dialog;
 
     public DialogManager dialogManager;
