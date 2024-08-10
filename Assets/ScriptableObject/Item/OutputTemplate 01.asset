@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OutputTemplate 01
   m_EditorClassIdentifier: 
   itemName: Ot01
-  itemDescription: username password
+  itemDescription: passcode
   itemSprite: {fileID: -450705497, guid: aaec8324cc87a6848b098907acdcf89b, type: 3}
   isUnique: 1
   usable: 0

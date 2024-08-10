@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f492b4c425ff19a4bbfc0804856256f2, type: 3}
   m_Name: General Inventory
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 11400000, guid: 959ac228505cd9d43b1beef8582f9c02, type: 2}
   currentItem: {fileID: 0}

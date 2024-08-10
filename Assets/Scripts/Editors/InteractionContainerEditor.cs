@@ -36,10 +36,6 @@ public class InteractionEditor : Editor
         {
             interactionContainer.defaultInteraction = new ChatInteraction();
         }
-        if (GUILayout.Button("Set as Add Item"))
-        {
-            interactionContainer.defaultInteraction = new AddItemInteraction();
-        }
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Add interaction", EditorStyles.boldLabel);
@@ -50,6 +46,10 @@ public class InteractionEditor : Editor
         if (GUILayout.Button("Add Add Item"))
         {
             interactionContainer.interactions.Add(new AddItemInteraction());
+        }
+        if (GUILayout.Button("Add Add Template"))
+        {
+            interactionContainer.interactions.Add(new AddTemplateInteraction());
         }
         if (GUILayout.Button("Add Ask"))
         {
