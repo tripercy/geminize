@@ -1620,8 +1620,8 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1006937251}
-  - {fileID: 1874350401}
-  - {fileID: 370837616}
   - {fileID: 740851158}
+  - {fileID: 370837616}
+  - {fileID: 1874350401}
+  - {fileID: 1006937251}
   - {fileID: 1064075230}
