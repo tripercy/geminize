@@ -54,18 +54,21 @@ public class DataInventoryManager : MonoBehaviour
 
     public void OnClickAdd()
     {
-        GameObject temp = Instantiate(emptyQuerySlot, queryBoardPanel.transform.position, Quaternion.identity);
-        temp.AddComponent<UIDraggable2D>();
-        QueryInputSlot newSlot = temp.GetComponent<QueryInputSlot>();
-
-        newSlot.transform.SetParent(queryBoardPanel.transform);
-        temp.GetComponent<UIDraggable2D>().parent = newSlot.transform.parent.gameObject;
-        if (newSlot)
+        if (currentItem)
         {
-            newSlot.SetUp(currentItem);
-            // Make the slot draggable
-            newSlot.AddComponent<BoxCollider2D>(); // Ensure BoxCollider2D is attached
-            queryBoardInventory.items.Add(currentItem);
+            GameObject temp = Instantiate(emptyQuerySlot, queryBoardPanel.transform.position, Quaternion.identity);
+            temp.AddComponent<UIDraggable2D>();
+            QueryInputSlot newSlot = temp.GetComponent<QueryInputSlot>();
+
+            newSlot.transform.SetParent(queryBoardPanel.transform);
+            temp.GetComponent<UIDraggable2D>().parent = newSlot.transform.parent.gameObject;
+            if (newSlot)
+            {
+                newSlot.SetUp(currentItem);
+                // Make the slot draggable
+                newSlot.AddComponent<BoxCollider2D>(); // Ensure BoxCollider2D is attached
+                queryBoardInventory.items.Add(currentItem);
+            }
         }
     }
 }
