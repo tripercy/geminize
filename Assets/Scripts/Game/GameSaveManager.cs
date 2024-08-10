@@ -18,10 +18,10 @@ public class GameSaveManager : MonoBehaviour
     //Player Inventory
     //PlayerPosition
 
-    private void OnEnable()
-    {
-        LoadGame();
-    }
+    // private void OnEnable()
+    // {
+    //     LoadGame();
+    // }
 
     private void OnDisable()
     {
@@ -30,7 +30,7 @@ public class GameSaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        position.initialValue = player.gameObject.transform.position;
+        // position.initialValue = player.gameObject.transform.position;
         SceneManager.GetActiveScene();
         for (int i = 0; i < scriptableObjects.Count; i++)
         {

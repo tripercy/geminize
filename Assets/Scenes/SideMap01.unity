@@ -81464,7 +81464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 2
-  playerPosition: {x: -19, y: 14}
+  playerPosition: {x: -4, y: 21}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
 --- !u!61 &1634699750
 BoxCollider2D:
