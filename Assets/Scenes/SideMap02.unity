@@ -40297,7 +40297,7 @@ MonoBehaviour:
   sceneIndex: 3
   playerPosition: {x: 22, y: 15}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
-  anim: {fileID: 0}
+  anim: {fileID: 441090991}
 --- !u!61 &1807637528
 BoxCollider2D:
   m_ObjectHideFlags: 0

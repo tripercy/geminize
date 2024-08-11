@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 public class Query : MonoBehaviour
 {
-    private const string sys_ins = "You are an assistance that help user extract data into structured json format.";
+    private const string sys_ins = "You are an assistance that helps the user to solve riddles using the input data.";
 
     private static Query _Instance;
     public static Query Instance

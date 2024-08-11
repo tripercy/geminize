@@ -31603,7 +31603,7 @@ MonoBehaviour:
   sceneIndex: 3
   playerPosition: {x: -9, y: -203}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
-  anim: {fileID: 0}
+  anim: {fileID: 1705508698}
 --- !u!61 &744100211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34623,6 +34623,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213058919}
   m_CullTransparentMesh: 1
+--- !u!1001 &1257844147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1909894889}
+    m_Modifications:
+    - target: {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Name
+      value: VortexDroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530240915635141212, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: ClueOff
+      value: 
+      objectReference: {fileID: 217972978}
+    - target: {fileID: 2530240915635141212, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: dialogManager
+      value: 
+      objectReference: {fileID: 2110161832}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.43499
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.964483
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 227.93063
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+--- !u!4 &1257844148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  m_PrefabInstance: {fileID: 1257844147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1271506972
 GameObject:
   m_ObjectHideFlags: 0
@@ -64595,7 +64665,7 @@ MonoBehaviour:
   sceneIndex: 8
   playerPosition: {x: 19, y: 1}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
-  anim: {fileID: 0}
+  anim: {fileID: 1705508698}
 --- !u!61 &1712512941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66120,6 +66190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Story
       objectReference: {fileID: 0}
+    - target: {fileID: 6690537166004914715, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -66129,8 +66203,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1911343626211237917, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1513481715}
+    - targetCorrespondingSourceObject: {fileID: 3718696191807358930, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257844148}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+--- !u!4 &1909894889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3718696191807358930, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+  m_PrefabInstance: {fileID: 1909894888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914645333
 GameObject:
   m_ObjectHideFlags: 0
@@ -67238,7 +67320,7 @@ MonoBehaviour:
   sceneIndex: 9
   playerPosition: {x: 0, y: 16}
   playerStorage: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
-  anim: {fileID: 0}
+  anim: {fileID: 1705508698}
 --- !u!61 &2107872319
 BoxCollider2D:
   m_ObjectHideFlags: 0
