@@ -34643,13 +34643,45 @@ PrefabInstance:
       propertyPath: dialogManager
       value: 
       objectReference: {fileID: 2110161832}
+    - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 380531253, guid: 4fe1964710e9c4885ab11e0af2a69b98, type: 3}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0203624
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1041183
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01670003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.025177956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521853534368813976, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.65625
+      objectReference: {fileID: 0}
     - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.43499
+      value: -24.89
       objectReference: {fileID: 0}
     - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.964483
+      value: 22.47
       objectReference: {fileID: 0}
     - target: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34683,16 +34715,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Size.x
+      value: 2.291829
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0850954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6171441
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.035360813
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136967430346953107, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.65625
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257844150}
   m_SourcePrefab: {fileID: 100100000, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
 --- !u!4 &1257844148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5810978532792874987, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
   m_PrefabInstance: {fileID: 1257844147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1257844149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  m_PrefabInstance: {fileID: 1257844147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1257844150
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257844149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 741886e8e55e04aaab10f06c9ccd3059, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1271506972
 GameObject:
   m_ObjectHideFlags: 0
