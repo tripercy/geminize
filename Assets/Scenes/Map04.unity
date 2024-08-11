@@ -34643,6 +34643,106 @@ PrefabInstance:
       propertyPath: dialogManager
       value: 
       objectReference: {fileID: 2110161832}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: defaultInteraction
+      value: 2179426893521485839
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[0]
+      value: 2179426893521485865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[1]
+      value: 2179426893521485840
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[2]
+      value: 2179426893521485841
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[3]
+      value: 2179426893521485842
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485839]
+      value: Assembly-CSharp ChatInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485840]
+      value: Assembly-CSharp AddItemInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485841]
+      value: Assembly-CSharp AskInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485842]
+      value: Assembly-CSharp ChatInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485865]
+      value: Assembly-CSharp AddItemInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485839].id
+      value: droid_default
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485841].id
+      value: droid_quest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485842].id
+      value: droid_meet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485840].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 60b16eef64e114d14b01524bd16265d0, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485865].item
+      value: 
+      objectReference: {fileID: 11400000, guid: a9654a127ac3f4fffb6dc45da5b90b31, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485840].inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485865].inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485841].pauseManager
+      value: 
+      objectReference: {fileID: 721752087}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485839].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485842].dialog.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485839].dialog.Array.data[0]
+      value: I was given a description of you, and you don't really  look like that
+        description. But since you know the passcode, that description must be wrong.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485842].dialog.Array.data[0]
+      value: 'Oi, fellow droid!
+
+        You must also be from The Vortex if you
+        come all the way out here to look for me.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485842].dialog.Array.data[1]
+      value: Gimme the passcode and I shall grant you the Item.
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -11,6 +11,36 @@
             "dict": {
                 "passcode": "cyclOn3"
             }
+        },
+        {
+            "id": "droid_quest",
+            "dict": {
+                "passcode": "1234"
+            }
+        },
+        {
+            "id": "kwuoc_kwest",
+            "dict": {
+                "passcode": "1234"
+            }
+        }, 
+        {
+            "id": "sonic_resonator",
+            "dict": {
+                "passcode": "1234"
+            }
+        },
+        {
+            "id": "cte",
+            "dict": {
+                "passcode": "1234"
+            }
+        },
+        {
+            "id": "sus_pack",
+            "dict": {
+                "passcode": "1234"
+            }
         }
     ]
 }

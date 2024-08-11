@@ -3949,6 +3949,93 @@ PrefabInstance:
       propertyPath: dialogManager
       value: 
       objectReference: {fileID: 1154919515}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: defaultInteraction
+      value: 2179426893521485854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[0]
+      value: 2179426893521485853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[1]
+      value: 2179426893521485856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: interactions.Array.data[2]
+      value: 2179426893521485855
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485853]
+      value: Assembly-CSharp AddItemInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485854]
+      value: Assembly-CSharp ChatInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485855]
+      value: Assembly-CSharp AskInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856]
+      value: Assembly-CSharp ChatInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485854].id
+      value: the_other_side
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485855].id
+      value: cte
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856].id
+      value: the_situation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485853].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bec6a16fd1044d8aa2b2acbc9281cb5, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485853].inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485855].pauseManager
+      value: 
+      objectReference: {fileID: 702594955}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485854].dialog.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856].dialog.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485854].dialog.Array.data[0]
+      value: After you report to the AI, bring all pieces we have gathered back to
+        our base. It is up North of Outer City.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856].dialog.Array.data[0]
+      value: So I was right, you are also working for the AI. This is...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856].dialog.Array.data[1]
+      value: Great! This means that we have an insider to prepare for our upcoming
+        attack.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426893521485856].dialog.Array.data[2]
+      value: So, here is my plan, you take this suit, show the AI that you have collected
+        it and find out where is it hosting itself, then Bam! We attack.
+      objectReference: {fileID: 0}
     - target: {fileID: 2777671452835576998, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: m_Sprite
       value: 

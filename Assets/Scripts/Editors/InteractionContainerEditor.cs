@@ -51,6 +51,10 @@ public class InteractionEditor : Editor
         {
             interactionContainer.interactions.Add(new AskInteraction());
         }
+        if (GUILayout.Button("Add Get Item"))
+        {
+            interactionContainer.interactions.Add(new GetItemInteraction());
+        }
     }
 }
 #endif
