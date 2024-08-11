@@ -47,10 +47,6 @@ public class InteractionEditor : Editor
         {
             interactionContainer.interactions.Add(new AddItemInteraction());
         }
-        if (GUILayout.Button("Add Add Template"))
-        {
-            interactionContainer.interactions.Add(new AddTemplateInteraction());
-        }
         if (GUILayout.Button("Add Ask"))
         {
             interactionContainer.interactions.Add(new AskInteraction());

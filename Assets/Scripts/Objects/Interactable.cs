@@ -53,7 +53,7 @@ public class Interactable : MonoBehaviour
                 interaction = interactionContainer.defaultInteraction;
             }
 
-            interactingObject = interaction.trigger();
+            interactingObject = interaction.trigger(dialogManager);
         }
 
     }

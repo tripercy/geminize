@@ -19,7 +19,7 @@ public class AskInteraction : Interaction
         }
     }
 
-    public override GameObject trigger()
+    public override GameObject trigger(DialogManager dialogManager)
     {
         loadExpected();
         gameplayMenu.OnGameplayMenuChange();

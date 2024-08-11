@@ -5,6 +5,12 @@
             "dict": {
                 "passcode": "0359"
             }
+        },
+        {
+            "id": "psa",
+            "dict": {
+                "passcode": "cyclOn3"
+            }
         }
     ]
 }
