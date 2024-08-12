@@ -7,5 +7,6 @@ using UnityEngine;
 public class VectorValue : ScriptableObject
 {
     public Vector2 initialValue;
+    public Vector2 defaultValue;
     public int sceneIndex;
 }

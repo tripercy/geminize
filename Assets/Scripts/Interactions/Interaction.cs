@@ -8,4 +8,7 @@ public abstract class Interaction
     public virtual bool checkOutput() {
         return true;
     }
+    public virtual Interaction InitDeserialize(InteractionData interactionData) {
+        return null;
+    }
 }
