@@ -8,8 +8,8 @@ public class InventoryItem : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
-    public Sprite itemSprite;
-    public bool isUnique;
+    [SerializeField]public Sprite itemSprite;
+     public bool isUnique;
     public bool usable;
-    public ItemType itemType;
+    [SerializeField] public ItemType itemType;
 }

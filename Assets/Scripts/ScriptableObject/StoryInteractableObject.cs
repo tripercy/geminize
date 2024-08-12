@@ -6,9 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class StoryInteractableObject : ScriptableObject
 {
-    public List<Interactable> interactablesCurrentMap = new List<Interactable>();
-    public List<Interactable> interactablesArc01 = new List<Interactable>();
-    public List<Interactable> interactablesArc02 = new List<Interactable>();
-    public List<Interactable> interactablesArc03 = new List<Interactable>();
-    public List<Interactable> interactablesArc04 = new List<Interactable>();
+    public List<GameObject> interactablesCurrentMap = new List<GameObject>();
+    public List<GameObject> interactablesArc01 = new List<GameObject>();
+    public List<GameObject> interactablesArc02 = new List<GameObject>();
+    public List<GameObject> interactablesArc03 = new List<GameObject>();
+    public List<GameObject> interactablesArc04 = new List<GameObject>();
 }

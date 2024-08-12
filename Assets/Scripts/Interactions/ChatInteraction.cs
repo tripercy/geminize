@@ -20,4 +20,14 @@ public class ChatInteraction : Interaction
         dialogManager.open(dialog);
         return dialogManager.gameObject;
     }
+
+    public override Interaction InitDeserialize(InteractionData item) {
+        ChatInteraction newInstance = new ChatInteraction();
+        ChatInteractionData temp = (ChatInteractionData) item;
+        newInstance.id = temp.id;
+        newInstance.dialog = temp.dialog;
+        Debug.Log(this.dialogManager);
+        newInstance.dialogManager = dialogManager;
+        return newInstance;
+    }
 }

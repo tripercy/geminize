@@ -6,36 +6,65 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class GameSaveManager : MonoBehaviour
 {
     public static GameSaveManager gameSave;
     public VectorValue position;
-    public PlayerController player;
-    public List<ScriptableObject> scriptableObjects = new List<ScriptableObject>();
-    [SerializeField] public GameObject story;
-    public StoryInteractableObject storyInteractable;
+    private PlayerController player;
+    public List<ScriptableObject> scriptableObjects = new();
+    [SerializeField] private GameObject story;
+    [SerializeField] public GameObject ClueOff;
+    [SerializeField] public DialogManager dialogManager;
+    private SaveObject saveObject;
 
     //Lootable objects
     //Player Inventory
     //PlayerPosition
 
-    // private void OnEnable()
-    // {
-    //     LoadGame();
-    // }
+    private void Awake()
+    {
+        saveObject = new SaveObject();
+        LoadGame();
+    }
 
-    // private void OnDisable()
-    // {
-    //     SaveGame();
-    // }
+    private void Update()
+    {
+        ApplieObject();
+    }
 
+    public void ApplieObject()
+    {
+        GameSaveManager gameSaveManager = FindObjectOfType<GameSaveManager>();
+        if (gameSaveManager != null)
+        {
+            gameSave = gameSaveManager;
+        }
+        PlayerController playerCurrent = FindObjectOfType<PlayerController>();
+        if (playerCurrent != null)
+        {
+            this.player = playerCurrent;
+        }
+        StoryController storyCurrent = FindObjectOfType<StoryController>();
+        if (storyCurrent != null)
+        {
+            this.story = storyCurrent.transform.gameObject;
+        }
+        DialogManager dialogCurrent = FindObjectOfType<DialogManager>();
+        if (dialogCurrent != null)
+        {
+            this.dialogManager = dialogCurrent;
+        }
+    }
     public void SaveGame()
     {
         position.initialValue = player.gameObject.transform.position;
         position.sceneIndex = player.sceneIndex;
         int i = 0;
+        //
         for (; i < scriptableObjects.Count; i++)
         {
             FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
@@ -44,56 +73,103 @@ public class GameSaveManager : MonoBehaviour
             binary.Serialize(file, json);
             file.Close();
         }
-        for (int j = 0; j < storyInteractable.interactablesArc01.Count; j++)
+
+        for (int a = 0; a < story.transform.childCount; a++)
         {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            i++;
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(storyInteractable.interactablesArc01[j]);
-            binary.Serialize(file, json);
-            file.Close();
-        }
-        for (int k = 0; k < storyInteractable.interactablesArc02.Count; k++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            i++;
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(storyInteractable.interactablesArc02[k]);
-            binary.Serialize(file, json);
-            file.Close();
-        }
-        for (int l = 0; l < storyInteractable.interactablesArc03.Count; l++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            i++;
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(storyInteractable.interactablesArc03[l]);
-            binary.Serialize(file, json);
-            file.Close();
-        }
-        for (int m = 0; m < storyInteractable.interactablesArc04.Count; m++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            i++;
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(storyInteractable.interactablesArc04[m]);
-            binary.Serialize(file, json);
-            file.Close();
-        }
-        for (int n = 0; n < storyInteractable.interactablesCurrentMap.Count; n++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            i++;
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(storyInteractable.interactablesCurrentMap[n]);
-            binary.Serialize(file, json);
-            file.Close();
-        }
+            if (story.transform.GetChild(a).GetComponent<Interactable>())
+            {
+                //
+                FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                i++;
+                BinaryFormatter binary = new BinaryFormatter();
+                saveObject = new SaveObject();
+                saveObject.InitObject(story.transform.GetChild(a).gameObject);
+                var json1 = JsonUtility.ToJson(saveObject);
+
+                // print(json1);
+                binary.Serialize(file, json1);
+                file.Close();
+            }
+            else if (!story.transform.GetChild(a).GetComponent<Interactable>())
+            {
+                if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-1") == 0)
+                {
+
+                    //
+                    for (int j = 0; j < story.transform.GetChild(a).childCount; j++)
+                    {
+                        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                        i++;
+                        BinaryFormatter binary = new BinaryFormatter();
+                        saveObject = new SaveObject();
+                        saveObject.InitObject(story.transform.GetChild(a).GetChild(j).gameObject);
+                        if (saveObject.interactionContainerData.defaultInteractionData != null)
+                        {
+                            ChatInteractionData temp = new ChatInteractionData();
+                            temp = (ChatInteractionData)saveObject.interactionContainerData.defaultInteractionData;
+                            print(temp.id);
+                        }
+                        var json2 = JsonUtility.ToJson(saveObject);
+                        binary.Serialize(file, json2);
+                        file.Close();
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-2") == 0)
+                {
+
+                    //
+                    for (int k = 0; k < story.transform.GetChild(a).childCount; k++)
+                    {
+                        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                        i++;
+                        BinaryFormatter binary = new BinaryFormatter();
+                        saveObject = new SaveObject();
+                        saveObject.InitObject(story.transform.GetChild(a).GetChild(k).gameObject);
+                        var json3 = JsonUtility.ToJson(saveObject);
+                        binary.Serialize(file, json3);
+                        file.Close();
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-3") == 0)
+                {
+
+                    //
+                    for (int l = 0; l < story.transform.GetChild(a).childCount; l++)
+                    {
+                        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                        i++;
+                        BinaryFormatter binary = new BinaryFormatter();
+                        saveObject = new SaveObject();
+                        saveObject.InitObject(story.transform.GetChild(a).GetChild(l).gameObject);
+                        var json4 = JsonUtility.ToJson(saveObject);
+                        binary.Serialize(file, json4);
+                        file.Close();
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-4") == 0)
+                {
+
+                    //
+                    for (int m = 0; m < story.transform.GetChild(a).childCount; m++)
+                    {
+                        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                        i++;
+                        BinaryFormatter binary = new BinaryFormatter();
+                        saveObject = new SaveObject();
+                        saveObject.InitObject(story.transform.GetChild(a).GetChild(m).gameObject);
+                        var json5 = JsonUtility.ToJson(saveObject);
+                        binary.Serialize(file, json5);
+                        file.Close();
+                    }
+                }
+            }
+        }   
     }
 
     public void LoadGame()
     {
         int i = 0;
+        //
         for (; i < scriptableObjects.Count; i++)
         {
             if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
@@ -104,18 +180,163 @@ public class GameSaveManager : MonoBehaviour
                 file.Close();
             }
         }
+        //
+        for (int a = 0; a < story.transform.childCount; a++)
+        {
+            if (story.transform.GetChild(a).GetComponent<Interactable>())
+            {
+                if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+                {
+                    FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.dat", i), FileMode.Open);
+                    BinaryFormatter binary = new BinaryFormatter();
+                    saveObject = new SaveObject();
+                    JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), saveObject);
+                    Vector3 v = new Vector3(saveObject.position[0], saveObject.position[1], saveObject.position[2]);
+                    story.transform.GetChild(a).gameObject.GetComponent<Interactable>().transform.position = v;
+                    story.transform.GetChild(a).gameObject.GetComponent<Interactable>().ClueOff = ClueOff;
+                    story.transform.GetChild(a).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
+                    Interaction defaultInterTemp = story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                    List<Interaction> interactionsTemp = story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+
+                    story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().interactions
+                    = interactionsTemp;
+
+                    story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().defaultInteraction
+                    = defaultInterTemp;
+                    i++;
+                    file.Close();
+                }
+            }
+            else if (!story.transform.GetChild(a).GetComponent<Interactable>())
+            {
+                if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-1") == 0)
+                {
+                    for (int j = 0; j < story.transform.GetChild(a).childCount; j++)
+                    {
+                        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+                        {
+                            FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.dat", i), FileMode.Open);
+                            BinaryFormatter binary = new BinaryFormatter();
+                            saveObject = new SaveObject();
+                            JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), saveObject);
+                            Vector3 v = new Vector3(saveObject.position[0], saveObject.position[1], saveObject.position[2]);
+                            story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<Interactable>().transform.position = v;
+                            story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<Interactable>().ClueOff = ClueOff;
+                            story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
+
+                            Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+
+                            story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().interactions
+                            = interactionsTemp;
+
+                            story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().defaultInteraction
+                            = defaultInterTemp;
+
+                            i++;
+                            file.Close();
+                        }
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-2") == 0)
+                {
+                    //
+                    for (int k = 0; k < story.transform.GetChild(a).childCount; k++)
+                    {
+                        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+                        {
+                            FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.dat", i), FileMode.Open);
+                            BinaryFormatter binary = new BinaryFormatter();
+                            saveObject = new SaveObject();
+                            JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), saveObject);
+                            Vector3 v = new Vector3(saveObject.position[0], saveObject.position[1], saveObject.position[2]);
+                            story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<Interactable>().transform.position = v;
+                            story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<Interactable>().ClueOff = ClueOff;
+                            story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
+
+                            Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+
+                            story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().interactions
+                            = interactionsTemp;
+
+                            story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().defaultInteraction
+                            = defaultInterTemp;
+                            i++;
+                            file.Close();
+                        }
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-3") == 0)
+                {
+                    //
+                    for (int l = 0; l < story.transform.GetChild(a).childCount; l++)
+                    {
+                        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+                        {
+                            FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.dat", i), FileMode.Open);
+                            BinaryFormatter binary = new BinaryFormatter();
+                            saveObject = new SaveObject();
+                            JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), saveObject);
+                            Vector3 v = new Vector3(saveObject.position[0], saveObject.position[1], saveObject.position[2]);
+                            story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<Interactable>().transform.position = v;
+                            story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<Interactable>().ClueOff = ClueOff;
+                            story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
+
+                            Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+
+                            story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().interactions
+                            = interactionsTemp;
+
+                            story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().defaultInteraction
+                            = defaultInterTemp;
+                            i++;
+                            file.Close();
+                        }
+                    }
+                }
+                else if (story.transform.GetChild(a).gameObject.name.CompareTo("Arc-4") == 0)
+                {
+                    //
+                    for (int m = 0; m < story.transform.GetChild(a).childCount; m++)
+                    {
+                        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+                        {
+                            FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.dat", i), FileMode.Open);
+                            BinaryFormatter binary = new BinaryFormatter();
+                            saveObject = new SaveObject();
+                            JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), saveObject);
+                            Vector3 v = new Vector3(saveObject.position[0], saveObject.position[1], saveObject.position[2]);
+                            story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<Interactable>().transform.position = v;
+                            story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<Interactable>().ClueOff = ClueOff;
+                            story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
+
+                            Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+
+                            story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().interactions
+                            = interactionsTemp;
+
+                            story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().defaultInteraction
+                            = defaultInterTemp;
+                            i++;
+                            file.Close();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void ResetGame()
     {
         int i = 0;
-        for (; i < scriptableObjects.Count; i++)
+        while (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
         {
-            if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
-            {
-                File.Delete(Application.persistentDataPath + string.Format("/{0}.dat", i));
-            }
+            File.Delete(Application.persistentDataPath + string.Format("/{0}.dat", i));
+            i++;
         }
     }
 }

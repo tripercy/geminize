@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: StartMapObjects
   m_EditorClassIdentifier: 
   interactablesCurrentMap:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
   interactablesArc01:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+  - {fileID: 2276208272932024096, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
   interactablesArc02: []
   interactablesArc03: []
   interactablesArc04: []
