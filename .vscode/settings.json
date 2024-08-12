@@ -55,5 +55,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "geminize.sln"
+    "dotnet.defaultSolution": "Geminize.sln"
 }
