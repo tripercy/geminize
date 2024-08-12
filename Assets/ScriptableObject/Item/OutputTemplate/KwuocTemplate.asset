@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KwuocTemplate
   m_EditorClassIdentifier: 
   itemName: Ot01
-  itemDescription: passcode
+  itemDescription: year number password
   itemSprite: {fileID: 1547648334, guid: dd7f7e4169acb4c1597ba2655328fb3e, type: 3}
   isUnique: 1
   usable: 0

@@ -395,19 +395,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2052572940}
+    m_TransformParent: {fileID: 1902333982}
     m_Modifications:
     - target: {fileID: 737542027038295678, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.98
+      value: -21.364012
       objectReference: {fileID: 0}
     - target: {fileID: 737542027038295678, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.416508
+      value: 28.32837
       objectReference: {fileID: 0}
     - target: {fileID: 737542027038295678, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 227.9323
+      value: 227.93063
       objectReference: {fileID: 0}
     - target: {fileID: 737542027038295678, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_LocalRotation.w
@@ -452,6 +452,23 @@ PrefabInstance:
     - target: {fileID: 1598413658601423042, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_Offset.y
       value: -0.5117214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121987305554807824, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
+      propertyPath: dialogManager
+      value: 
+      objectReference: {fileID: 1433305686}
+    - target: {fileID: 2121987305554807824, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
+      propertyPath: dialogs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121987305554807824, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
+      propertyPath: dialogs.Array.data[0]
+      value: '[AI] Be careful, I won''t be able to keep my eye on you once you get
+        out there.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121987305554807824, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
+      propertyPath: dialogs.Array.data[1]
+      value: '[AI] Good luck'
       objectReference: {fileID: 0}
     - target: {fileID: 5905596609820231998, guid: 00f5e54ff52b7462dbc709aa42c91612, type: 3}
       propertyPath: m_Name
@@ -1125,7 +1142,9 @@ MonoBehaviour:
   player: {fileID: 1575589412}
   scriptableObjects: []
   story: {fileID: 0}
-  storyInteractable: {fileID: 0}
+  ClueOff: {fileID: 0}
+  dialogManager: {fileID: 0}
+  pauseManager: {fileID: 0}
 --- !u!4 &198665239
 Transform:
   m_ObjectHideFlags: 0
@@ -13372,7 +13391,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -16093,7 +16112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069410f77f6aa20418f60ff74301da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 35
+  moveSpeed: 5
   currentState: 0
   player: {fileID: 1575589414}
   solidObjectsLayer:
@@ -50091,9 +50110,14 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.9999723}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 680, y: -10.000055}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1902333982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8085753548515454912, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+  m_PrefabInstance: {fileID: 5625195820944042203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1925631858
 GameObject:
   m_ObjectHideFlags: 0
@@ -77955,9 +77979,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1911343626211237917, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
       insertIndex: 1
       addedObject: {fileID: 425715417}
-    - targetCorrespondingSourceObject: {fileID: 1911343626211237917, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 17291023}
     - targetCorrespondingSourceObject: {fileID: 7166995304703090202, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
       insertIndex: -1
       addedObject: {fileID: 894102111}
@@ -77967,6 +77988,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3718696191807358930, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1116018649}
+    - targetCorrespondingSourceObject: {fileID: 8085753548515454912, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 17291023}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce314003b59094a5ea944ab3834dc150, type: 3}
 --- !u!1660057539 &9223372036854775807
