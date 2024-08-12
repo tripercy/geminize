@@ -10,16 +10,16 @@ public class MainMenuController : MonoBehaviour
     public VectorValue position;
 
     public void NewGame() {
-        gameSaveManager.ResetGame();
+        // gameSaveManager.ResetGame();
         position.initialValue = position.defaultValue;
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void LoadGame() {
-        SceneManager.LoadScene(position.sceneIndex, LoadSceneMode.Single);
+        // SceneManager.LoadScene(position.sceneIndex, LoadSceneMode.Single);
     }
 
     public void Exit() {
-        Application.Quit();;
+        Application.Quit();
     }
 }

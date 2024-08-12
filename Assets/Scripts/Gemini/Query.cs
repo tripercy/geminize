@@ -73,7 +73,7 @@ public class Query : MonoBehaviour
     void Awake()
     {
         // TODO: Read API key from where?
-        GeminiManager.Instance.SetApiKey("");
+        GeminiManager.Instance.SetApiKey("AIzaSyAzGl9UWrYrYksiQ9EB7VWqgepgb53c4-c");
     }
 
     public async Task<string> query(string content, string description, List<string> fields)
