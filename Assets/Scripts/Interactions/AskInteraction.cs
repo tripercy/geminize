@@ -48,7 +48,8 @@ public class AskInteraction : Interaction
         AskInteraction newInstance = new AskInteraction(); 
         AskInteractionData temp = (AskInteractionData) item;
         newInstance.id = temp.id;
-        newInstance.gameplayMenu =gameplayMenu;
+        // newInstance.gameplayMenu =gameplayMenu;
+        // TODO: Load pause manager
         newInstance.expected = new Dictionary<string, string>();
         for (int i = 0; i < temp.keys.Count; i++) {
             newInstance.expected[temp.keys[i]] = temp.values[i];

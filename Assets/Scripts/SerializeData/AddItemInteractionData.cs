@@ -10,14 +10,12 @@ public class AddItemInteractionData : InteractionData
     // public DialogManager dialogManager;
 
     // private DataPiece originalData;
-    public string dataId;
-    public string dataName;
-    public string content;
+    public PlayerInventory playerInventory;
+    public InventoryItem inventoryItem;
+
     public override void InitSerialize(Interaction item) {
         AddItemInteraction temp = (AddItemInteraction) item;
-        id = temp.id;
-        dataId = temp.GetDataPiece().id;
-        dataName = temp.GetDataPiece().name;
-        content = temp.GetDataPiece().content;
+        playerInventory = temp.inventory;
+        inventoryItem = temp.item;
     }
 }
