@@ -1,11 +1,12 @@
-using UnityEngine.UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class ChatInteraction : Interaction
 {
     public string id;
-    public string dialog;
+    [TextArea]
+    public List<string> dialog;
 
     public DialogManager dialogManager;
 
@@ -17,7 +18,7 @@ public class ChatInteraction : Interaction
     public override GameObject trigger()
     {
         loadDialog();
-        dialogManager.open(dialog);
+        dialogManager.startDialog(dialog);
         return dialogManager.gameObject;
     }
 

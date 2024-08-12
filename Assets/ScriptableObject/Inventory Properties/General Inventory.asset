@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: General Inventory
   m_EditorClassIdentifier: 
   items:
+<<<<<<< HEAD
   - {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
   - {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
   - {fileID: 11400000, guid: 3f16f24776d191547bb7ec508f8683ab, type: 2}
+=======
+  - {fileID: 11400000, guid: 959ac228505cd9d43b1beef8582f9c02, type: 2}
+  - {fileID: 0}
+>>>>>>> main
   currentItem: {fileID: 0}
