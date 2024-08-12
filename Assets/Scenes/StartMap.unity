@@ -920,6 +920,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 186646849}
     - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
+      propertyPath: managedReferences[2179426849671348244].pauseManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671957551972137093, guid: 81827ccd7c55e4bcc8e989afe704d258, type: 3}
       propertyPath: managedReferences[2179426849671348243].dialogManager
       value: 
       objectReference: {fileID: 2126359091}
@@ -7476,7 +7480,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
   - {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
   story: {fileID: 749377298}
-  storyInteractable: {fileID: 0}
+  ClueOff: {fileID: 0}
+  dialogManager: {fileID: 0}
+  pauseManager: {fileID: 0}
 --- !u!4 &633388163
 Transform:
   m_ObjectHideFlags: 0
@@ -7950,6 +7956,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1084996755}
+  - {fileID: 1381839659}
   - {fileID: 1079325953}
   - {fileID: 1301488345}
   - {fileID: 334738536}
@@ -7958,8 +7966,6 @@ Transform:
   - {fileID: 822436277}
   - {fileID: 1880805102}
   - {fileID: 1056232414}
-  - {fileID: 1381839659}
-  - {fileID: 1084996755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757898876
@@ -83454,10 +83460,9 @@ SceneRoots:
   - {fileID: 1988337116}
   - {fileID: 254678241}
   - {fileID: 1077275542}
-  - {fileID: 1463435846}
   - {fileID: 1801463840}
-  - {fileID: 2007284945}
   - {fileID: 633388163}
   - {fileID: 1225786524}
   - {fileID: 749377300}
   - {fileID: 1788295116}
+  - {fileID: 1212015970}

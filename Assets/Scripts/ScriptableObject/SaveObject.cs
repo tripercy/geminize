@@ -39,6 +39,12 @@ public class SaveObject
                 temp.InitSerialize(interactionContainer.interactions[i]);
                 interactionContainerData.interactionsData.Add(temp);
             }
+            else if (interactionContainer.interactions[i].GetType() == typeof(GetItemInteraction))
+            {
+                GetItemInteractionData temp = new GetItemInteractionData();
+                temp.InitSerialize(interactionContainer.interactions[i]);
+                interactionContainerData.interactionsData.Add(temp);
+            }
             
         }
         if (interactionContainer.defaultInteraction is AddItemInteraction interaction)
@@ -60,6 +66,13 @@ public class SaveObject
             interactionContainerData.defaultInteractionData = new ChatInteractionData();
             ChatInteractionData temp = new();
             temp.InitSerialize(interaction2);
+            interactionContainerData.defaultInteractionData = temp;
+        }
+        else if (interactionContainer.defaultInteraction is ChatInteraction interaction3)
+        {
+            interactionContainerData.defaultInteractionData = new GetItemInteractionData();
+            ChatInteractionData temp = new();
+            temp.InitSerialize(interaction3);
             interactionContainerData.defaultInteractionData = temp;
         }
     }

@@ -42,4 +42,17 @@ public class GetItemInteraction : Interaction
     {
         return haveItem;
     }
+
+    public override Interaction InitDeserialize(InteractionData interactionData)
+    {
+        GetItemInteraction newInstance = new GetItemInteraction();
+        GetItemInteractionData temp = (GetItemInteractionData) interactionData;
+        newInstance.id = temp.id;
+        newInstance.item_name = temp.item_name;
+        newInstance.inventory = temp.inventory;
+        newInstance.takeItem = temp.takeItem;
+        newInstance.haveItemDialog = temp.haveItemDialog;
+        newInstance.noItemDialog = temp.noItemDialog;
+        return newInstance;
+    }
 }

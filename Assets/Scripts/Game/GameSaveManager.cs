@@ -14,11 +14,12 @@ public class GameSaveManager : MonoBehaviour
 {
     public static GameSaveManager gameSave;
     public VectorValue position;
-    private PlayerController player;
+    public PlayerController player;
     public List<ScriptableObject> scriptableObjects = new();
     [SerializeField] private GameObject story;
     [SerializeField] public GameObject ClueOff;
     [SerializeField] public DialogManager dialogManager;
+    [SerializeField] private PauseManager pauseManager;
     private SaveObject saveObject;
 
     //Lootable objects
@@ -58,11 +59,17 @@ public class GameSaveManager : MonoBehaviour
         {
             this.dialogManager = dialogCurrent;
         }
+        PauseManager pauseCurrent = FindObjectOfType<PauseManager>();
+        if (pauseCurrent != null)
+        {
+            this.pauseManager = pauseCurrent;
+        }
     }
     public void SaveGame()
     {
         position.initialValue = player.gameObject.transform.position;
         position.sceneIndex = player.sceneIndex;
+        print(player);
         int i = 0;
         //
         for (; i < scriptableObjects.Count; i++)
@@ -78,15 +85,12 @@ public class GameSaveManager : MonoBehaviour
         {
             if (story.transform.GetChild(a).GetComponent<Interactable>())
             {
-                //
                 FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
                 i++;
                 BinaryFormatter binary = new BinaryFormatter();
                 saveObject = new SaveObject();
                 saveObject.InitObject(story.transform.GetChild(a).gameObject);
                 var json1 = JsonUtility.ToJson(saveObject);
-
-                // print(json1);
                 binary.Serialize(file, json1);
                 file.Close();
             }
@@ -103,12 +107,6 @@ public class GameSaveManager : MonoBehaviour
                         BinaryFormatter binary = new BinaryFormatter();
                         saveObject = new SaveObject();
                         saveObject.InitObject(story.transform.GetChild(a).GetChild(j).gameObject);
-                        if (saveObject.interactionContainerData.defaultInteractionData != null)
-                        {
-                            ChatInteractionData temp = new ChatInteractionData();
-                            temp = (ChatInteractionData)saveObject.interactionContainerData.defaultInteractionData;
-                            print(temp.id);
-                        }
                         var json2 = JsonUtility.ToJson(saveObject);
                         binary.Serialize(file, json2);
                         file.Close();
@@ -163,7 +161,7 @@ public class GameSaveManager : MonoBehaviour
                     }
                 }
             }
-        }   
+        }
     }
 
     public void LoadGame()
@@ -197,7 +195,23 @@ public class GameSaveManager : MonoBehaviour
                     story.transform.GetChild(a).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
                     Interaction defaultInterTemp = story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                    if (defaultInterTemp is AskInteraction)
+                    {
+                        AskInteraction temp = (AskInteraction)defaultInterTemp;
+                        temp.pauseManager = pauseManager;
+                        defaultInterTemp = temp;
+                    }
+
                     List<Interaction> interactionsTemp = story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+                    for (int z = 0; z < interactionsTemp.Count; z++)
+                    {
+                        if (interactionsTemp[i] is AskInteraction)
+                        {
+                            AskInteraction temp = (AskInteraction)interactionsTemp[i];
+                            temp.pauseManager = pauseManager;
+                            interactionsTemp[i] = temp;
+                        }
+                    }
 
                     story.transform.GetChild(a).gameObject.GetComponent<InteractionContainer>().interactions
                     = interactionsTemp;
@@ -226,7 +240,23 @@ public class GameSaveManager : MonoBehaviour
                             story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
                             Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            if (defaultInterTemp is AskInteraction)
+                            {
+                                AskInteraction temp = (AskInteraction)defaultInterTemp;
+                                temp.pauseManager = pauseManager;
+                                defaultInterTemp = temp;
+                            }
+
                             List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+                            for (int z = 0; z < interactionsTemp.Count; z++)
+                            {
+                                if (interactionsTemp[i] is AskInteraction)
+                                {
+                                    AskInteraction temp = (AskInteraction)interactionsTemp[i];
+                                    temp.pauseManager = pauseManager;
+                                    interactionsTemp[i] = temp;
+                                }
+                            }
 
                             story.transform.GetChild(a).GetChild(j).gameObject.GetComponent<InteractionContainer>().interactions
                             = interactionsTemp;
@@ -256,7 +286,23 @@ public class GameSaveManager : MonoBehaviour
                             story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
                             Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            if (defaultInterTemp is AskInteraction)
+                            {
+                                AskInteraction temp = (AskInteraction)defaultInterTemp;
+                                temp.pauseManager = pauseManager;
+                                defaultInterTemp = temp;
+                            }
+
                             List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+                            for (int z = 0; z < interactionsTemp.Count; z++)
+                            {
+                                if (interactionsTemp[i] is AskInteraction)
+                                {
+                                    AskInteraction temp = (AskInteraction)interactionsTemp[i];
+                                    temp.pauseManager = pauseManager;
+                                    interactionsTemp[i] = temp;
+                                }
+                            }
 
                             story.transform.GetChild(a).GetChild(k).gameObject.GetComponent<InteractionContainer>().interactions
                             = interactionsTemp;
@@ -285,7 +331,23 @@ public class GameSaveManager : MonoBehaviour
                             story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
                             Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            if (defaultInterTemp is AskInteraction)
+                            {
+                                AskInteraction temp = (AskInteraction)defaultInterTemp;
+                                temp.pauseManager = pauseManager;
+                                defaultInterTemp = temp;
+                            }
+
                             List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+                            for (int z = 0; z < interactionsTemp.Count; z++)
+                            {
+                                if (interactionsTemp[i] is AskInteraction)
+                                {
+                                    AskInteraction temp = (AskInteraction)interactionsTemp[i];
+                                    temp.pauseManager = pauseManager;
+                                    interactionsTemp[i] = temp;
+                                }
+                            }
 
                             story.transform.GetChild(a).GetChild(l).gameObject.GetComponent<InteractionContainer>().interactions
                             = interactionsTemp;
@@ -314,7 +376,23 @@ public class GameSaveManager : MonoBehaviour
                             story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<Interactable>().dialogManager = dialogManager;
 
                             Interaction defaultInterTemp = story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().InitDeserializeDefault(saveObject.interactionContainerData);
+                            if (defaultInterTemp is AskInteraction)
+                            {
+                                AskInteraction temp = (AskInteraction)defaultInterTemp;
+                                temp.pauseManager = pauseManager;
+                                defaultInterTemp = temp;
+                            }
+
                             List<Interaction> interactionsTemp = story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().InitDeserialize(saveObject.interactionContainerData);
+                            for (int z = 0; z < interactionsTemp.Count; z++)
+                            {
+                                if (interactionsTemp[i] is AskInteraction)
+                                {
+                                    AskInteraction temp = (AskInteraction)interactionsTemp[i];
+                                    temp.pauseManager = pauseManager;
+                                    interactionsTemp[i] = temp;
+                                }
+                            }
 
                             story.transform.GetChild(a).GetChild(m).gameObject.GetComponent<InteractionContainer>().interactions
                             = interactionsTemp;

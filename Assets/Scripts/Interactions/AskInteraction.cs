@@ -7,7 +7,7 @@ public class AskInteraction : Interaction
 {
     public string id;
     public PauseManager pauseManager;
-    public Dictionary<string, string> expected;
+    public Dictionary<string, string> expected = new Dictionary<string, string>();
 
     void loadExpected()
     {
