@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: VortexDroids
   itemDescription: Androids in The Vortex encrypt their passcode with Caesar cipher
-    with the key being the combination of all character modulo 5.
   itemSprite: {fileID: 900028460, guid: 484c6b97173e30945b75aee02aa9ae19, type: 3}
   isUnique: 1
   usable: 0

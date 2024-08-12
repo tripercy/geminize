@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5733d375e122e459be319374fa7f85, type: 3}
   m_Name: Opposition
   m_EditorClassIdentifier: 
-  itemName: Hint1
+  itemName: Opposition
   itemDescription: The beauty in opposition
   itemSprite: {fileID: 900028460, guid: 484c6b97173e30945b75aee02aa9ae19, type: 3}
   isUnique: 1
