@@ -1248,14 +1248,14 @@ MonoBehaviour:
     - rid: 2179426849671348248
       type: {class: AddItemInteraction, ns: , asm: Assembly-CSharp}
       data:
-        id: door_passcode
+        id: 
         inventory: {fileID: 11400000, guid: 349b3ab0e07295b43b6ddc81fc0cf56f, type: 2}
         dialogManager: {fileID: 0}
     - rid: 2179426849671348249
       type: {class: ChatInteraction, ns: , asm: Assembly-CSharp}
       data:
         id: usb
-        dialog: 'There is a USB labeled: "Door passcode"'
+        dialog: []
         dialogManager: {fileID: 0}
 --- !u!114 &989069599
 MonoBehaviour:
@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1168133556}
   gameSaveManager: {fileID: 1064075229}
-  position: {fileID: 11400000, guid: a02c3fe3eb208354f9c377a7f2eb0024, type: 2}
+  position: {fileID: 0}
 --- !u!1 &1188627042
 GameObject:
   m_ObjectHideFlags: 0

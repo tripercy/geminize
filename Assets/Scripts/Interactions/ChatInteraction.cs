@@ -26,8 +26,7 @@ public class ChatInteraction : Interaction
         ChatInteraction newInstance = new ChatInteraction();
         ChatInteractionData temp = (ChatInteractionData) item;
         newInstance.id = temp.id;
-        newInstance.dialog = temp.dialog;
-        Debug.Log(this.dialogManager);
+        // newInstance.dialog = temp.dialog;
         newInstance.dialogManager = dialogManager;
         return newInstance;
     }

@@ -11,6 +11,6 @@ public class ChatInteractionData : InteractionData
     public override void InitSerialize(Interaction item) {
         ChatInteraction temp = (ChatInteraction) item;
         id = temp.id;
-        dialog = temp.dialog;
+        // dialog = temp.dialog;
     }
 }
