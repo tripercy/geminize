@@ -5,6 +5,42 @@
             "dict": {
                 "passcode": "0359"
             }
+        },
+        {
+            "id": "psa",
+            "dict": {
+                "passcode": "cyclOn3"
+            }
+        },
+        {
+            "id": "droid_quest",
+            "dict": {
+                "passcode": "xwpupjp"
+            }
+        },
+        {
+            "id": "kwuoc_kwest",
+            "dict": {
+                "passcode": "1234"
+            }
+        }, 
+        {
+            "id": "sonic_resonator",
+            "dict": {
+                "passcode": "1234"
+            }
+        },
+        {
+            "id": "cte",
+            "dict": {
+                "passcode": "1234"
+            }
+        },
+        {
+            "id": "sus_pack",
+            "dict": {
+                "passcode": "1234"
+            }
         }
     ]
 }

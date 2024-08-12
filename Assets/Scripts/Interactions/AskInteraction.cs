@@ -6,31 +6,37 @@ using System.Collections.Generic;
 public class AskInteraction : Interaction
 {
     public string id;
-    public GameplayMenu gameplayMenu;
-    public Dictionary<string, string> expected = new Dictionary<string, string>();
+    public PauseManager pauseManager;
+    public Dictionary<string, string> expected;
 
-    void loadExpected() {
+    void loadExpected()
+    {
         var loader = QuestionsLoader.Instance;
 
-        foreach (var x in loader.container.questions) {
-            if (x.id.CompareTo(id) == 0) {
+        foreach (var x in loader.container.questions)
+        {
+            if (x.id.CompareTo(id) == 0)
+            {
                 expected = x.dict;
             }
         }
     }
 
-    public override GameObject trigger()
+    public override GameObject trigger(DialogManager dialogManager)
     {
         loadExpected();
-        gameplayMenu.OnGameplayMenuChange();
-        return gameplayMenu.gameObject;
+        pauseManager.OnQueryBoardChange();
+        return pauseManager.gameObject.transform.GetComponentInChildren<QueryBoardManager>(true).gameObject;
     }
 
-    public override bool checkOutput() {
+    public override bool checkOutput()
+    {
         var result = OutputObject.Instance.output;
 
-        foreach (var key in expected.Keys) {
-            if (result.GetValueOrDefault(key, "").CompareTo(expected[key]) != 0) {
+        foreach (var key in expected.Keys)
+        {
+            if (result.GetValueOrDefault(key, "").CompareTo(expected[key]) != 0)
+            {
                 return false;
             }
         }

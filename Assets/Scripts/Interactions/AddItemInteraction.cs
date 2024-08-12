@@ -4,37 +4,15 @@ using System;
 [System.Serializable]
 public class AddItemInteraction : Interaction
 {
-    public string id;
+    public InventoryItem item;
     public PlayerInventory inventory;
-    public DialogManager dialogManager;
 
-    private DataPiece originalData = new DataPiece();
-
-    void LoadData()
+    public override GameObject trigger(DialogManager dialogManager)
     {
-        DataPiecesLoader dpl = DataPiecesLoader.Instance;
-        var container = dpl.container;
-
-        foreach (var dataPiece in container.data_pieces)
-        {
-            if (dataPiece.id == id)
-            {
-                originalData = dataPiece;
-                break;
-            }
-        }
-    }
-
-    public override GameObject trigger()
-    {
-        LoadData();
-        Adapter<DataPiece, InventoryItem> adt = new DataToInvenItem();
-        InventoryItem item = adt.from(originalData);
-
         inventory.currentItem = item;
         inventory.items.Add(item);
 
-        var s = "[DATA ACQUIRED]" + Environment.NewLine + originalData.name + ": " + originalData.content;
+        var s = String.Format("[ACQUIRED: {0}]", item.itemType.name)+ Environment.NewLine + item.name + ": " + item.itemDescription;
         dialogManager.open(s);
 
         return dialogManager.gameObject;

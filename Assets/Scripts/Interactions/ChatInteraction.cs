@@ -8,14 +8,12 @@ public class ChatInteraction : Interaction
     [TextArea]
     public List<string> dialog;
 
-    public DialogManager dialogManager;
-
     void loadDialog()
     {
         // TODO: Load dialog
     }
 
-    public override GameObject trigger()
+    public override GameObject trigger(DialogManager dialogManager)
     {
         loadDialog();
         dialogManager.startDialog(dialog);

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5733d375e122e459be319374fa7f85, type: 3}
+  m_Name: ArcReactor
+  m_EditorClassIdentifier: 
+  itemName: Arc Reactor
+  itemDescription: An arc reactor
+  itemSprite: {fileID: 1049238935, guid: eb68ff50a3941471d9661a81e8ca68a7, type: 3}
+  isUnique: 0
+  usable: 1
+  itemType: {fileID: 11400000, guid: 56e24d2dad3f54435b7cb3877abfb789, type: 2}

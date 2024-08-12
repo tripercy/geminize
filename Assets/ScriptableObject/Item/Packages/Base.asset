@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de5733d375e122e459be319374fa7f85, type: 3}
-  m_Name: OutputTemplate 01
+  m_Name: Base
   m_EditorClassIdentifier: 
-  itemName: Ot01
-  itemDescription: passcode
-  itemSprite: {fileID: 1547648334, guid: dd7f7e4169acb4c1597ba2655328fb3e, type: 3}
-  isUnique: 1
-  usable: 0
-  itemType: {fileID: 11400000, guid: 99a60b7874411ff45a05c3e90d31ef1e, type: 2}
+  itemName: Package
+  itemDescription: Package description
+  itemSprite: {fileID: 1049238935, guid: eb68ff50a3941471d9661a81e8ca68a7, type: 3}
+  isUnique: 0
+  usable: 1
+  itemType: {fileID: 11400000, guid: 56e24d2dad3f54435b7cb3877abfb789, type: 2}

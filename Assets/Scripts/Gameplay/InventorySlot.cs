@@ -19,7 +19,7 @@ public class InventorySlot : MonoBehaviour
         thisManager = manager;
         if (thisItem) {
             itemImage.sprite = thisItem.itemSprite;
-            iteminfo.text = thisItem.itemDescription;
+            iteminfo.text = thisItem.itemName;
         }
     }
 

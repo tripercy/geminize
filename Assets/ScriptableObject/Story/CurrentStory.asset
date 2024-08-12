@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b33ee92edae4b4b96731a7744b4b50, type: 3}
   m_Name: CurrentStory
   m_EditorClassIdentifier: 
-  currentArc: 0
+  currentArc: 3

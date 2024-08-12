@@ -7,6 +7,7 @@ using UnityEngine;
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
+    [TextArea]
     public string itemDescription;
     [SerializeField]public Sprite itemSprite;
      public bool isUnique;
