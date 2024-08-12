@@ -55605,7 +55605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069410f77f6aa20418f60ff74301da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 35
+  moveSpeed: 5
   currentState: 0
   player: {fileID: 1658174127}
   solidObjectsLayer:
@@ -58950,7 +58950,9 @@ MonoBehaviour:
   player: {fileID: 1658174125}
   scriptableObjects: []
   story: {fileID: 0}
-  storyInteractable: {fileID: 0}
+  ClueOff: {fileID: 0}
+  dialogManager: {fileID: 0}
+  pauseManager: {fileID: 0}
 --- !u!4 &2098079587
 Transform:
   m_ObjectHideFlags: 0

@@ -121,7 +121,7 @@ public class PauseManager : MonoBehaviour
         {
             queryPanel.SetActive(true);
             MoveObject(queryPanel.GetComponent<RectTransform>(), Vector3.zero);
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
             isReceivable = false;
         }
         else
