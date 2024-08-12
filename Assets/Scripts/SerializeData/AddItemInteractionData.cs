@@ -4,12 +4,6 @@ using UnityEngine;
 [System.Serializable]
 public class AddItemInteractionData : InteractionData
 {
-    public string id;
-    // public PlayerInventory inventory;
-
-    // public DialogManager dialogManager;
-
-    // private DataPiece originalData;
     public PlayerInventory playerInventory;
     public InventoryItem inventoryItem;
 

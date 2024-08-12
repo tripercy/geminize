@@ -31,6 +31,12 @@ public class InteractionContainer : MonoBehaviour
                 temp = (ChatInteraction )temp.InitDeserialize(data.interactionsData[i]);
                 result.Add(temp);
             }
+            else if (this.interactions[i].GetType() == typeof(GetItemInteraction))
+            {
+                GetItemInteraction temp = (GetItemInteraction)this.interactions[i];
+                temp = (GetItemInteraction)temp.InitDeserialize(data.interactionsData[i]);
+                result.Add(temp);
+            }
         }
         return result;
     }
@@ -53,6 +59,12 @@ public class InteractionContainer : MonoBehaviour
         {
             ChatInteraction result = new ChatInteraction();
             result = (ChatInteraction)result.InitDeserialize(data.defaultInteractionData);
+            return result;
+        }
+        else if (defaultInteraction is GetItemInteraction)
+        {
+            GetItemInteraction result = new GetItemInteraction();
+            result = (GetItemInteraction)result.InitDeserialize(data.defaultInteractionData);
             return result;
         }
         return null;
